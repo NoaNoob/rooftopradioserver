@@ -1,6 +1,5 @@
-FROM tomcat:8.0.20-jre8
+FROM openjdk:8-jre-alpine
 
-RUN mkdir /usr/local/tomcat/webapps/myapp
+ADD target/radio-*.jar /app/app.jar
 
-COPY /target/radio-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/radio.war
-COPY tomcat-users.xml conf/tomcat-users.xml
+ENTRYPOINT [ "java", "-jar", "/app/app.jar" ]
