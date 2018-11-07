@@ -13,7 +13,7 @@ class App extends React.Component {
 
 	componentDidMount() {
 		client({method: 'GET', path: '/bands'}).done(response => {
-			this.setState({bands: response.entity._embedded.bands});
+			this.setState({bands: response.entity});
 		});
 	}
 
@@ -27,7 +27,7 @@ class App extends React.Component {
 class BandList extends React.Component{
 	render() {
 		const bands = this.props.bands.map(band =>
-			<Band key={band._links.self.href} band={band}/>
+			<Band band={band}/>
 		);
 		return (
 			<table>
