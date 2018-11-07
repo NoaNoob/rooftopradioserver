@@ -94,6 +94,15 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>arwes install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>install --save arwes</arguments>
+						</configuration>
+					</execution>
+					<execution>
 						<id>webpack build</id>
 						<goals>
 							<goal>webpack</goal>

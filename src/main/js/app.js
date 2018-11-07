@@ -1,5 +1,7 @@
 'use strict';
 
+import { ThemeProvider, createTheme, Arwes, Words } from 'arwes';
+
 const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
@@ -30,7 +32,10 @@ class BandList extends React.Component{
 			<Band band={band}/>
 		);
 		return (
-			<table>
+		<ThemeProvider theme={createTheme()}>
+		  <Arwes>
+		  <h3><Words animate>INOFFICIAL GUIDE TO THE BANDS OF GÖRLITZ</Words></h3>
+			<table animate>
 				<tbody>
 					<tr>
 						<th>Name</th>
@@ -42,6 +47,8 @@ class BandList extends React.Component{
 					{bands}
 				</tbody>
 			</table>
+		 </Arwes>
+	   </ThemeProvider>
 		)
 	}
 }
