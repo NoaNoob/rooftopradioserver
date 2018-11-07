@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class BandService {
 
+	@Autowired
+	StatusService statusService;
+	
 	public List<Band> getBandsFromCsvFile() {
 
 		List<Band> bands = new ArrayList<>();
@@ -29,6 +33,7 @@ public class BandService {
 
 		} catch (Exception e) {
 			log.error(e.getMessage());
+			statusService.logException(e);
 		}
 
 		return bands;

@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class BandController {
 
 	BandService bandService;
+	StatusService statusService;
 
 	@Autowired
-	BandController(BandService bandService) {
+	BandController(BandService bandService, StatusService statusService) {
 		this.bandService = bandService;
+		this.statusService = statusService;
 	}
 
 	@RequestMapping("/bands")
@@ -26,5 +28,11 @@ public class BandController {
 	public String getStatus() {
 
 		return "I'm fine.";
+	}
+
+	@RequestMapping("/exceptions")
+	public List<Exception> getExceptions() {
+
+		return statusService.getExceptions();
 	}
 }
