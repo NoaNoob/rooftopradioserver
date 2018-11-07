@@ -21,4 +21,10 @@ public class BandController {
 
 		return bandService.getBandsFromCsvFile();
 	}
+
+	@RequestMapping("/status")
+	public String getStatus() {
+
+		return "I'm fine.";
+	}
 }
