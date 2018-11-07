@@ -16,7 +16,7 @@ public class BandController {
 		this.bandService = bandService;
 	}
 
-	@RequestMapping("/")
+	@RequestMapping("/bands")
 	public List<Band> getBands() {
 
 		return bandService.getBandsFromCsvFile();
