@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
@@ -18,12 +18,16 @@ public class BandService {
 	@Autowired
 	StatusService statusService;
 	
+	@Autowired
+	ResourceLoader resourceLoader;
+	
 	public List<Band> getBandsFromCsvFile() {
 
 		List<Band> bands = new ArrayList<>();
 
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(new ClassPathResource("bands.csv").getFile()));
+			
+			BufferedReader reader = new BufferedReader(new FileReader(resourceLoader.getResource("classpath:bands.csv").getFile()));
 			while (reader.ready()) {
 				String line = reader.readLine();
 				bands.add(parserLineToBand(line));
