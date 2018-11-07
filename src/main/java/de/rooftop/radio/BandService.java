@@ -1,7 +1,8 @@
 package de.rooftop.radio;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,17 +18,20 @@ public class BandService {
 
 	@Autowired
 	StatusService statusService;
-	
+
 	@Autowired
 	ResourceLoader resourceLoader;
-	
+
 	public List<Band> getBandsFromCsvFile() {
 
 		List<Band> bands = new ArrayList<>();
 
 		try {
-			
-			BufferedReader reader = new BufferedReader(new FileReader(resourceLoader.getResource("classpath:bands.csv").getFile()));
+
+			InputStream stream = resourceLoader.getResource("classpath:bands.csv").getInputStream();
+			InputStreamReader inputStreamReader = new InputStreamReader(stream);
+			BufferedReader reader = new BufferedReader(inputStreamReader);
+
 			while (reader.ready()) {
 				String line = reader.readLine();
 				bands.add(parserLineToBand(line));
