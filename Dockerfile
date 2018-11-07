@@ -1,5 +1,5 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+FROM tomcat:8.0.20-jre8
+
+RUN mkdir /usr/local/tomcat/webapps/myapp
+
+COPY /target/radio-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/radio.war
