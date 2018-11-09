@@ -32,23 +32,24 @@ class BandList extends React.Component{
 			<Band key={band.internet} band={band}/>
 		);
 		return (
-		<ThemeProvider theme={createTheme()}>
-		  <Arwes>
-		  <h3><Words>INOFFICIAL GUIDE TO THE BANDS OF GÖRLITZ</Words></h3>
-			<table>
+		<div>
+			<table class="table table-dark">
 				<tbody>
+				  <thead>
 					<tr>
-						<th>Name</th>
-						<th>Location</th>
-						<th>Type</th>
-						<th>Genre</th>
-						<th>Internet</th>
+						<th scope="col">Name</th>
+						<th scope="col">Location</th>
+						<th scope="col">Type</th>
+						<th scope="col">Genre</th>
+						<th scope="col">Internet</th>
 					</tr>
+				  </thead>
+				  <tbody>
 					{bands}
+				  </tbody>
 				</tbody>
 			</table>
-		 </Arwes>
-	   </ThemeProvider>
+		</div>
 		)
 	}
 }
