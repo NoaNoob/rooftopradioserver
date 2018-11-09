@@ -58,7 +58,7 @@ public class BandService {
 		}
 
 		String internet = fields[4];
-		if (!internet.contains("http://")) {
+		if (!internet.contains("http://") && !internet.contains("https://")) {
 			internet = "http://" + internet;
 		}
 
