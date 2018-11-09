@@ -1,6 +1,6 @@
 'use strict';
 
-import { ThemeProvider, createTheme, Arwes, Words } from 'arwes';
+import { ThemeProvider, createTheme, Arwes, Words, Link } from 'arwes';
 
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -29,13 +29,13 @@ class App extends React.Component {
 class BandList extends React.Component{
 	render() {
 		const bands = this.props.bands.map(band =>
-			<Band band={band}/>
+			<Band key={band.internet} band={band}/>
 		);
 		return (
 		<ThemeProvider theme={createTheme()}>
 		  <Arwes>
-		  <h3><Words animate>INOFFICIAL GUIDE TO THE BANDS OF GÖRLITZ</Words></h3>
-			<table animate>
+		  <h3><Words>INOFFICIAL GUIDE TO THE BANDS OF GÖRLITZ</Words></h3>
+			<table>
 				<tbody>
 					<tr>
 						<th>Name</th>
@@ -61,7 +61,7 @@ class Band extends React.Component{
 				<td>{this.props.band.location}</td>
 				<td>{this.props.band.type}</td>
 				<td>{this.props.band.genre}</td>
-				<td>{this.props.band.internet}</td>
+				<td><a href={this.props.band.internet}>{this.props.band.internet}</a></td>
 			</tr>
 		)
 	}

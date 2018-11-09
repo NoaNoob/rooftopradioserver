@@ -53,12 +53,16 @@ public class BandService {
 
 		if (fields.length != 5) {
 
-			return Band.builder().name(fields[0]).location("").type("").genre("").internet("Bitte Csv-Daten prüfen")
-					.build();
+			return Band.builder().name(fields[0]).location("").type("").genre("").internet("not available").build();
 
 		}
 
-		return Band.builder().name(fields[0]).location(fields[1]).type(fields[2]).genre(fields[3]).internet(fields[4])
+		String internet = fields[4];
+		if (!internet.contains("http://")) {
+			internet = "http://" + internet;
+		}
+
+		return Band.builder().name(fields[0]).location(fields[1]).type(fields[2]).genre(fields[3]).internet(internet)
 				.build();
 	}
 }

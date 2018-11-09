@@ -28,6 +28,6 @@ public class BandServiceTest {
 	public void shouldParseLineToBand() {
 		Band band = bandService.parserLineToBand("Rooftop Radio;Görlitz;Band;Alternative Rock;www.rooftopradio.de");
 		Assert.assertThat(band.getName(), Is.is("Rooftop Radio"));
-		Assert.assertThat(band.getInternet(), Is.is("www.rooftopradio.de"));
+		Assert.assertThat(band.getInternet(), Is.is("http://www.rooftopradio.de"));
 	}
 }
