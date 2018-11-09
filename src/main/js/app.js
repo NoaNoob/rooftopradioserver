@@ -61,7 +61,7 @@ class Band extends React.Component{
 				<td>{this.props.band.location}</td>
 				<td>{this.props.band.type}</td>
 				<td>{this.props.band.genre}</td>
-				<td><a href={this.props.band.internet}>{this.props.band.internet}</a></td>
+				<td><a href={this.props.band.internet} target="_blank">{this.props.band.internet}</a></td>
 			</tr>
 		)
 	}
