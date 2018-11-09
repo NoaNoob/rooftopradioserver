@@ -32,9 +32,7 @@ class BandList extends React.Component{
 			<Band key={band.internet} band={band}/>
 		);
 		return (
-		<div>
 			<table class="table table-dark">
-				<tbody>
 				  <thead>
 					<tr>
 						<th scope="col">Name</th>
@@ -47,9 +45,7 @@ class BandList extends React.Component{
 				  <tbody>
 					{bands}
 				  </tbody>
-				</tbody>
 			</table>
-		</div>
 		)
 	}
 }
