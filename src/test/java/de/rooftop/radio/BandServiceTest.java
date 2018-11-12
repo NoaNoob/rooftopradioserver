@@ -22,7 +22,7 @@ public class BandServiceTest {
 	public void shouldReadCsvFile() {
 
 		List<Band> list = bandService.getBandsFromCsvFile();
-		Assert.assertThat(list.size(), Is.is(72));
+		Assert.assertThat(list.size(), Is.is(74));
 	}
 
 	@Test
