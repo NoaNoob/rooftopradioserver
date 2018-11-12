@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hamcrest.core.Is;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,15 @@ public class BandServiceTest {
 	public void shouldReadCsvFile() {
 
 		List<Band> list = bandService.getBandsFromCsvFile();
-		Assert.assertThat(list.size(), Is.is(70));
+		Assert.assertThat(list.size(), Is.is(72));
+	}
+
+	@Test
+	@Ignore
+	public void shouldReadCsvFileFromGoogleDrive() {
+
+		List<Band> list = bandService.getBandsFromGoogleDrive();
+		Assert.assertThat(list.size(), Is.is(72));
 	}
 
 	@Test
@@ -30,4 +39,5 @@ public class BandServiceTest {
 		Assert.assertThat(band.getName(), Is.is("Rooftop Radio"));
 		Assert.assertThat(band.getInternet(), Is.is("http://www.rooftopradio.de"));
 	}
+
 }

@@ -3,6 +3,7 @@ package de.rooftop.radio;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +48,33 @@ public class BandService {
 		return bands;
 	}
 
+	public List<Band> getBandsFromGoogleDrive() {
+
+		List<Band> bands = new ArrayList<>();
+
+		try {
+
+			URL url = new URL("https://drive.google.com/open?id=1_dzq34g9HRnzZh02mxUWWN1A--nj6jVX");
+
+			InputStreamReader inputStreamReader = new InputStreamReader(url.openStream());
+			BufferedReader reader = new BufferedReader(inputStreamReader);
+
+			while (reader.ready()) {
+				String line = reader.readLine();
+				System.out.println(line);
+				bands.add(parserLineToBand(line));
+			}
+
+			reader.close();
+
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			statusService.logException(e);
+		}
+
+		return bands;
+	}
+	
 	Band parserLineToBand(String line) {
 
 		String[] fields = line.split(";");
