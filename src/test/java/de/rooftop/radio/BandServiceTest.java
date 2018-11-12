@@ -30,7 +30,7 @@ public class BandServiceTest {
 	public void shouldReadCsvFileFromGoogleDrive() {
 
 		List<Band> list = bandService.getBandsFromGoogleDrive();
-		Assert.assertThat(list.size(), Is.is(72));
+		Assert.assertThat(list.size(), Is.is(74));
 	}
 
 	@Test
