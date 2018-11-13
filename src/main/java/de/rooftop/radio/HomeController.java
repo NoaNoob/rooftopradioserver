@@ -15,4 +15,9 @@ public class HomeController {
 	public String admin() {
 		return "private";
 	}
+
+	@RequestMapping(value = "/login")
+	public String login() {
+		return "login";
+	}
 }
