@@ -47,7 +47,7 @@
                     data:params
                 }).then(function(response){
                     set_cookie("access_token",response.data.access_token);
-                    document.location.replace("/");
+                    document.location.replace("/private");
                 });
             }
         }

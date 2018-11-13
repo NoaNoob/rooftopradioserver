@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
-<link href="sticky-footer.css" rel="stylesheet">
-<meta charset="UTF-8" />
-<title>Bandlist powered by Rooftop Radio</title>
-<link rel="stylesheet" href="/main.css" />
-</head>
+<head th:replace="fragments/header :: header('Login')" />
 <body>
+<div th:replace="fragments/nav :: nav"></div>
 
-    <h3>Übersicht über Musiker aus dem Landkeis Görlitz</h3>
+    <h3>Musiker aus dem Landkeis Görlitz</h3>
 	<div class="alert alert-warning" role="alert">
 	  Achtung: Diese Seite befindet sich gerade im Aufbau!
 	</div>
