@@ -1,4 +1,4 @@
-package de.rooftop.radio;
+package de.rooftop.radio.band;
 
 import java.util.List;
 
@@ -10,6 +10,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import de.rooftop.radio.band.Band;
+import de.rooftop.radio.band.BandService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

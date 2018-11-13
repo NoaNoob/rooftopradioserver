@@ -1,4 +1,4 @@
-package de.rooftop.radio;
+package de.rooftop.radio.band;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
+import de.rooftop.radio.StatusService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

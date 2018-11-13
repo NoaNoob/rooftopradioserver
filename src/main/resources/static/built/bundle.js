@@ -54957,16 +54957,23 @@ function (_React$Component2) {
     value: function render() {
       var bands = this.props.bands.map(function (band) {
         return React.createElement(Band, {
+          key: band.internet,
           band: band
         });
       });
-      return React.createElement(arwes__WEBPACK_IMPORTED_MODULE_0__["ThemeProvider"], {
-        theme: Object(arwes__WEBPACK_IMPORTED_MODULE_0__["createTheme"])()
-      }, React.createElement(arwes__WEBPACK_IMPORTED_MODULE_0__["Arwes"], null, React.createElement("h3", null, React.createElement(arwes__WEBPACK_IMPORTED_MODULE_0__["Words"], {
-        animate: true
-      }, "INOFFICIAL GUIDE TO THE BANDS OF G\xD6RLITZ")), React.createElement("table", {
-        animate: true
-      }, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("th", null, "Name"), React.createElement("th", null, "Location"), React.createElement("th", null, "Type"), React.createElement("th", null, "Genre"), React.createElement("th", null, "Internet")), bands))));
+      return React.createElement("table", {
+        class: "table table-dark"
+      }, React.createElement("thead", null, React.createElement("tr", null, React.createElement("th", {
+        scope: "col"
+      }, "Name"), React.createElement("th", {
+        scope: "col"
+      }, "Location"), React.createElement("th", {
+        scope: "col"
+      }, "Type"), React.createElement("th", {
+        scope: "col"
+      }, "Genre"), React.createElement("th", {
+        scope: "col"
+      }, "Internet"))), React.createElement("tbody", null, bands));
     }
   }]);
 
@@ -54987,7 +54994,10 @@ function (_React$Component3) {
   _createClass(Band, [{
     key: "render",
     value: function render() {
-      return React.createElement("tr", null, React.createElement("td", null, this.props.band.name), React.createElement("td", null, this.props.band.location), React.createElement("td", null, this.props.band.type), React.createElement("td", null, this.props.band.genre), React.createElement("td", null, this.props.band.internet));
+      return React.createElement("tr", null, React.createElement("td", null, this.props.band.name), React.createElement("td", null, this.props.band.location), React.createElement("td", null, this.props.band.type), React.createElement("td", null, this.props.band.genre), React.createElement("td", null, React.createElement("a", {
+        href: this.props.band.internet,
+        target: "_blank"
+      }, this.props.band.internet)));
     }
   }]);
 
