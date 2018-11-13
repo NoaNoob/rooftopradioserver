@@ -17,6 +17,9 @@ import de.rooftop.radio.user.UserRepository;
 @SpringBootApplication
 public class RadioApplication {
 
+	@Autowired
+    private PasswordEncoder passwordEncoder;
+
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -31,7 +34,7 @@ public class RadioApplication {
 	public void authentificationManager(AuthenticationManagerBuilder builder, UserRepository repo) throws Exception {
 
 		if (repo.count() == 0) {
-			repo.save(User.builder().username("band").password("band")
+			repo.save(User.builder().username("band").password(passwordEncoder.encode("band"))
 					.roles(Arrays.asList(new Role("USER"), new Role("ACTUATOR"))).build());
 		}
 
