@@ -2,13 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header('Login')" />
 <body>
-<div th:replace="fragments/nav :: nav"></div>
+<div id="root">
+	<div th:replace="fragments/nav :: nav"></div>
 
     <h3>Musiker aus dem Landkeis Görlitz</h3>
 	<div class="alert alert-warning" role="alert">
 	  Achtung: Diese Seite befindet sich gerade im Aufbau!
 	</div>
-	<div id="react"></div>
+	<!-- div id="react"></div-->
+
+	<!-- Vue Stuff -->
+
+			<table class="table table-dark">
+				  <thead>
+					<tr>
+						<th scope="col">Name</th>
+						<th scope="col">Location</th>
+						<th scope="col">Type</th>
+						<th scope="col">Genre</th>
+						<th scope="col">Internet</th>
+					</tr>
+				  </thead>
+				  <tbody>
+						<tr v-for="band in bands">
+							<td>{{band.name}}</td>
+							<td>{{band.location}}</td>
+							<td>{{band.type}}</td>
+							<td>{{band.genre}}</td>
+							<td><a href={band.internet} target="_blank">{band.internet}</a></td>
+						</tr>
+				  </tbody>
+			</table>
+
+	<!--  till here -->
 
 	<footer class="footer">
 		<div class="container">
@@ -18,5 +44,23 @@
 
 	<script src="built/bundle.js"></script>
 
+</div>
 </body>
+<div th:replace="fragments/footer :: foot"></div>
+<script>
+    var app = new Vue({
+        el: '#root',
+        data : {bands: []},
+        mounted(){
+            this.fetchBands();
+        },
+        methods: {
+            fetchBands(){
+                axios.get("/bands").then(function(response){
+                    this.bands = response.data;
+                }.bind(this));
+            }
+        }
+    });
+</script>
 </html>
