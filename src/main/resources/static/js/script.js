@@ -17,8 +17,6 @@ window.Event = new Vue({
 
 
 Vue.component('login-component',{
-//    template: '<ul class="navMenu" v-if="!isLoggedIn()" style="float:right"><li style="margin-right:5px"><a href="/login">Login</a></li></ul>' +
-//    '<p v-else id="loggedIn">{{logged_in_msg}} <span v-on:click="logOut" v-show="isLoggedIn()"><b color="blue">Logout</b></span></p>',
     template: '<ul class="nav navbar-nav"><li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>'
     	+ '<li v-if=!isLoggedIn()><a href="/login">Login</a></li>'
     	+ '<li v-if=isLoggedIn()><a v-on:click="navigateSettings">Settings</a></li>'
