@@ -17,8 +17,11 @@ window.Event = new Vue({
 
 
 Vue.component('login-component',{
-    template: '<ul class="navMenu" v-if="!isLoggedIn()" style="float:right"><li style="margin-right:5px"><a href="/login">Login</a></li></ul>' +
-    '<p v-else id="loggedIn">{{logged_in_msg}} <span v-on:click="logOut" v-show="isLoggedIn()"><b color="blue">Logout</b></span></p>',
+//    template: '<ul class="navMenu" v-if="!isLoggedIn()" style="float:right"><li style="margin-right:5px"><a href="/login">Login</a></li></ul>' +
+//    '<p v-else id="loggedIn">{{logged_in_msg}} <span v-on:click="logOut" v-show="isLoggedIn()"><b color="blue">Logout</b></span></p>',
+    template: '<ul class="nav navbar-nav"><li><a href="/">Home</a></li>'
+    	+ '<li v-if=!isLoggedIn()><a href="/login">Login</a></li>'
+    	+ '<li v-if=isLoggedIn()><a v-on:click="logOut">Logout ({{logged_in_msg}})</a></li></ul>',
     data: function(){
         return {logged_in_msg : ""}
     },
@@ -26,7 +29,7 @@ Vue.component('login-component',{
         if(getCookie("access_token")){
             axios.get("/getUsername?access_token=" + getCookie("access_token"))
                 .then(function(response){
-                    this.logged_in_msg = "Welcome back , " + response.data;
+                    this.logged_in_msg = response.data;
                     window.Event.isLoggedIn = true;
                     Event.$emit('logged-in');
                 }.bind(this))
