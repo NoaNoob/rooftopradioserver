@@ -18,6 +18,6 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 		antMatchers("/login").permitAll().
 		antMatchers("/logout").permitAll();
 
-		http.headers().disable();
+		http.headers().frameOptions().disable();
 	}
 }
