@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header('The Rooftop Radio Connection')" />
 <body>
-	<div id="bandlist">
+	<div id="root">
 
 		<div th:replace="fragments/nav :: nav"></div>
 
@@ -31,22 +31,12 @@
 				</tr>
 			</tbody>
 		</table>
-
-		<footer class="footer">
-			<div class="container">
-				<span class="text-muted">Kontakt: band@rooftopradio.de -
-					Rooftop Radio @ 09.11.2018</span>
-			</div>
-		</footer>
-
-		<!-- script src="built/bundle.js"></script-->
-
 	</div>
+	<div th:replace="fragments/footer :: foot"></div>
 </body>
-<div th:replace="fragments/footer :: foot"></div>
 <script>
     var app = new Vue({
-        el: '#bandlist',
+        el: '#root',
         data : {bands: []},
         mounted(){
             this.fetchBands();

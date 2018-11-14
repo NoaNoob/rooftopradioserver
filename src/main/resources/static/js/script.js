@@ -4,40 +4,6 @@ function getCookie(name) {
     if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
-//var vueLog = new Vue({
-//	el: '#loggedIn',
-//	data: {logged_in_msg : ""},
-//	mounted() {
-//		var isLoggedIn = false;
-//		if (!getCookie("access_token") == null ) {
-//			axios.get("/getUsername?access_token=" + getCookie("access_token"))
-//			.then(function(response) {
-//				
-//				this.logged_in_msg = "Welcome back, " + response.data;
-//				
-//			}.bind(this))
-//			.catch(function(error){
-//				console.log(error);
-//				deleteCookie("access_token");
-//				return;
-//			})
-//		}
-//	},
-//	methods : {
-//        logOut(){
-//            axios.get("/logouts?access_token="+getCookie("access_token"))
-//                .then(function(response){
-//                    window.Event.isLoggedIn = false;
-//                    this.logged_in_msg  = "Successfully logged out";
-//                    delete_cookie("access_token")
-//                }.bind(this))
-//        },
-//        isLoggedIn(){
-//            return window.Event.isLoggedIn;
-//        }
-//    }
-//})
-
 function set_cookie(name, value) {
     document.cookie = name +'='+ value +'; Path=/;';
 }
@@ -65,14 +31,14 @@ Vue.component('login-component',{
                     Event.$emit('logged-in');
                 }.bind(this))
                 .catch(function(error){
-//                    delete_cookie("access_token");
+                    delete_cookie("access_token");
                     return error;
                 });
         }
     },
     methods : {
         logOut(){
-            axios.get("/logouts?access_token="+getCookie("access_token"))
+            axios.get("/logout?access_token="+getCookie("access_token"))
                 .then(function(response){
                     window.Event.isLoggedIn = false;
                     this.logged_in_msg  = "Successfully logged out";

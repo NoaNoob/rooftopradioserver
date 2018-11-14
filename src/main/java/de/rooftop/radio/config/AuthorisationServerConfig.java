@@ -12,7 +12,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
 @Configuration
 @EnableAuthorizationServer
@@ -23,6 +22,9 @@ public class AuthorisationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Autowired
     private PasswordEncoder passwordEncoder;
+
+	@Autowired
+	private TokenStore tokenStore;
 
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
@@ -46,6 +48,7 @@ public class AuthorisationServerConfig extends AuthorizationServerConfigurerAdap
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 
 		endpoints.authenticationManager(authenticationManager);
+		endpoints.tokenStore(tokenStore);
 	}
 
 	@Configuration

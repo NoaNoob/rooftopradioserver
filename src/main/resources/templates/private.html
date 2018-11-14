@@ -1,10 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
-<head th:replace="fragments/header :: header('Private Area')" />
+<head th:replace="fragments/header :: header('Login')" />
 <body>
-
-	<div th:replace="fragments/nav :: nav"></div>
- 
-  	<div>Here goes the private area</div>
+	<div id="root">
+		<div th:replace="fragments/nav :: nav"></div>
+		<h3>Configuration Site</h3>
+		<form>
+			<div class="form-group">
+				<label for="username">New Username</label> <input v-model="username"
+					class="u-full-width" type="text" placeholder="new username"
+					id="username" />
+			</div>
+			<div class="form-group">
+				<label for="password">New Password</label> <input v-model="password"
+					class="u-full-width" type="password" id="password" />
+			</div>
+		</form>
+		<button class="btn btn-primary" v-on:click="save">Save</button>
+	</div>
 </body>
 <div th:replace="fragments/footer :: foot"></div>
+<script>
+    var app = new Vue({
+        el: '#root',
+        mounted() {
+            Event.$on('logged-in',function(){
+/*                 window.location.replace("/"); */
+            })
+        },
+        data:{
+            username: '',
+            password: '',
+        },
+        methods: {
+            save(){
+                var params = new URLSearchParams();
+                params.append('grant_type', 'password');
+                params.append('username', this.username);
+                params.append('password',this.password);
+                axios({
+                    method:'post',
+                    url:'oauth/token',
+                    auth:{username:'my-trusted-client',password:'secret'},
+                    headers: {"Content-type": "application/x-www-form-urlencoded; charset=utf-8"},
+                    data:params
+                }).then(function(response){
+                    set_cookie("access_token",response.data.access_token);
+                    document.location.replace("/private?access_token=" + getCookie("access_token"));
+                });
+            }
+        }
+    });
+</script>
+</html>
