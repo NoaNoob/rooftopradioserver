@@ -2,23 +2,21 @@
 <html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header :: header('Login')" />
 <body>
-<div id="root">
-<div th:replace="fragments/nav :: nav"></div>
-    <div class="container">
-        <div class="row">
-            <div class="twelve columns">
-                <h4 id="loginHeader">Login</h4>
-                <div class="six columns align-center">
-                    <label for="username">Username</label>
-                    <input v-model="username" class="u-full-width" type="text" placeholder="yourUsername" id="username"/>
-                    <label for="password">Password</label>
-                    <input v-model="password" class="u-full-width" type="password" id="password"/>
-                    <input class="u-full-width button-primary" type="submit" v-on:click="login" value="Submit" />
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+	<div id="root">
+		<div th:replace="fragments/nav :: nav"></div>
+		<form>
+			<div class="form-group">
+				<label for="username">Username</label> <input v-model="username"
+					class="u-full-width" type="text" placeholder="yourUsername"
+					id="username" />
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label> <input v-model="password"
+					class="u-full-width" type="password" id="password" />
+			</div>
+		</form>
+		<button class="btn btn-primary" v-on:click="login">Login</button>
+	</div>
 </body>
 <div th:replace="fragments/footer :: foot"></div>
 <script>
@@ -47,7 +45,7 @@
                     data:params
                 }).then(function(response){
                     set_cookie("access_token",response.data.access_token);
-                    document.location.replace("/private");
+                    document.location.replace("/private?access_token=" + getCookie("access_token"));
                 });
             }
         }

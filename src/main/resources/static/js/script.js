@@ -22,7 +22,20 @@ function getCookie(name) {
 //				return;
 //			})
 //		}
-//	}
+//	},
+//	methods : {
+//        logOut(){
+//            axios.get("/logouts?access_token="+getCookie("access_token"))
+//                .then(function(response){
+//                    window.Event.isLoggedIn = false;
+//                    this.logged_in_msg  = "Successfully logged out";
+//                    delete_cookie("access_token")
+//                }.bind(this))
+//        },
+//        isLoggedIn(){
+//            return window.Event.isLoggedIn;
+//        }
+//    }
 //})
 
 function set_cookie(name, value) {
@@ -52,7 +65,7 @@ Vue.component('login-component',{
                     Event.$emit('logged-in');
                 }.bind(this))
                 .catch(function(error){
-                    delete_cookie("access_token");
+//                    delete_cookie("access_token");
                     return error;
                 });
         }
