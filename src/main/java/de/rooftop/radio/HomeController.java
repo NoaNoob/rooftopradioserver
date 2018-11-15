@@ -22,6 +22,11 @@ public class HomeController {
 		return "home";
 	}
 
+	@RequestMapping(value = "/music")
+	public String music() {
+		return "music";
+	}
+
 	@RequestMapping(value = "/private")
 	public String admin() {
 		return "private";
