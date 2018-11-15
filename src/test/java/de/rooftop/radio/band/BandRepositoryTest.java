@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hamcrest.core.Is;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,9 @@ public class BandRepositoryTest {
 
 	@Autowired
 	private BandRepository repo;
-	
+
 	@Test
+	@Ignore
 	public void shouldRetriveOrderedBandList() {
 
 		repo.save(Band.builder().name("BBB").build());
