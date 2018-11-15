@@ -9,6 +9,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Component;
 
 import de.rooftop.radio.StatusService;
@@ -24,7 +26,10 @@ public class BandService {
 	@Autowired
 	ResourceLoader resourceLoader;
 
-	public List<Band> getBandsFromCsvFile() {
+	@Autowired
+	BandRepository bandRepository;
+	
+	private List<Band> getBandsFromCsvFile() {
 
 		List<Band> bands = new ArrayList<>();
 
@@ -93,5 +98,27 @@ public class BandService {
 
 		return Band.builder().name(fields[0]).location(fields[1]).type(fields[2]).genre(fields[3]).internet(internet)
 				.build();
+	}
+
+	public List<Band> getAllBands() {
+
+		return bandRepository.findAll(Sort.by(Direction.ASC, "name"));
+	}
+
+	public void initBandData() {
+
+		List<Band> bands = getBandsFromCsvFile();
+		bandRepository.deleteAll();
+		bandRepository.saveAll(bands);
+	}
+	
+	public void addBand(Band band) {
+
+		bandRepository.save(band);
+	}
+	
+	public void deleteBand(Long id) {
+
+		bandRepository.deleteById(id);
 	}
 }

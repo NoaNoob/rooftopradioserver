@@ -24,10 +24,14 @@ public class BandServiceTest {
 	@Test
 	public void shouldReadCsvFile() {
 
-		List<Band> list = bandService.getBandsFromCsvFile();
+		bandService.initBandData();
+		List<Band> list = bandService.getAllBands();
 		Assert.assertThat(list.size(), Is.is(74));
 	}
 
+	/**
+	 * Eventuell könnte man die initiale Liste auch aufm GoogleDrive laden wo alle rankommen
+	 */
 	@Test
 	@Ignore
 	public void shouldReadCsvFileFromGoogleDrive() {

@@ -21,7 +21,7 @@ public class RadioApplication {
 
 	@Autowired
     private PasswordEncoder passwordEncoder;
-
+	
 	@Bean
 	public TokenStore tokenStore() {
 	    return new InMemoryTokenStore();
@@ -33,7 +33,7 @@ public class RadioApplication {
 	}
 
 	public static void main(String[] args) {
-
+	
 		SpringApplication.run(RadioApplication.class, args);
 	}
 

@@ -4,19 +4,59 @@
 <body>
 	<div id="root">
 		<div th:replace="fragments/nav :: nav"></div>
-		<h3>Configuration Site</h3>
+		<h3>Add new Band</h3>
 		<form>
 			<div class="form-group">
-				<label for="username">New Username</label> <input v-model="username"
-					class="u-full-width" type="text" placeholder="new username"
-					id="username" />
+				<label for="username">Name</label> <input v-model="name"
+					class="u-full-width" type="text" placeholder=""
+					id="name" />
 			</div>
 			<div class="form-group">
-				<label for="password">New Password</label> <input v-model="password"
-					class="u-full-width" type="password" id="password" />
+				<label for="location">Location</label> <input v-model="location"
+					class="u-full-width" type="text" placeholder=""
+					id="location" />
+			</div>
+			<div class="form-group">
+				<label for="type">Name</label> <input v-model="type"
+					class="u-full-width" type="text" placeholder=""
+					id="type" />
+			</div>
+			<div class="form-group">
+				<label for="genre">Genre</label> <input v-model="genre"
+					class="u-full-width" type="text" placeholder=""
+					id="genre" />
+			</div>
+			<div class="form-group">
+				<label for="internet">Internet</label> <input v-model="internet"
+					class="u-full-width" type="text" placeholder=""
+					id="internet" />
 			</div>
 		</form>
 		<button class="btn btn-primary" v-on:click="save">Save</button>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Location</th>
+					<th scope="col">Type</th>
+					<th scope="col">Genre</th>
+					<th scope="col">Internet</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="band in bands">
+					<td>{{band.name}}</td>
+					<td>{{band.location}}</td>
+					<td>{{band.type}}</td>
+					<td>{{band.genre}}</td>
+					<td><a :href=band.internet target="_blank">{{band.internet}}</a></td>
+					<td><button class="btn btn-primary" @click='deleteband(band)'>delete</button></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<button class="btn btn-primary" v-on:click="initbands">Reset all Banddata</button>
 	</div>
 </body>
 <div th:replace="fragments/footer :: foot"></div>
@@ -25,12 +65,17 @@
         el: '#root',
         mounted() {
             Event.$on('logged-in',function(){
-/*                 window.location.replace("/"); */
-            })
+            	
+            });
+            this.fetchBands();
         },
         data:{
-            username: '',
-            password: '',
+            name: '',
+            location: '',
+            type: '',
+            genre: '',
+            internet: '',
+            bands: []
         },
         methods: {
             save(){
@@ -48,6 +93,29 @@
                     set_cookie("access_token",response.data.access_token);
                     document.location.replace("/private?access_token=" + getCookie("access_token"));
                 });
+            },
+            initbands(){
+            	if (confirm('Are you sure you want RESET the database?')) {
+	            	axios.get("/initbands?access_token=" + getCookie("access_token")).then(function(response){
+	            		this.fetchBands();
+    	            }.bind(this));
+            	} else {
+            		
+            	}
+            },
+            fetchBands(){
+                axios.get("/bands").then(function(response){
+                    this.bands = response.data;
+                }.bind(this));
+            },
+            deleteband(band){
+            	if (confirm('Delete ' + band.name + '?')) {
+            		axios.get("/deleteband?id=" + band.id + "&access_token=" + getCookie("access_token")).then(function(response){
+	            		this.fetchBands();
+            		}.bind(this));
+            	} else {
+            		
+            	}
             }
         }
     });
