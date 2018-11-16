@@ -4,3 +4,4 @@ Todo:
 - add Social Media Buttons
 - Create global CSS Style
 - Tec Specs
+- Follow Button (https://sproutsocial.com/insights/how-to-embed-facebook/)

@@ -1,7 +1,3 @@
 body {
-  background: radial-gradient(circle, #edf1f7, white);
-}
-
-.rooftopcard {
-  background: radial-gradient(circle, #ccccc, white);
+  background: radial-gradient(circle, #b1bfd6, #f7efe3);
 }
