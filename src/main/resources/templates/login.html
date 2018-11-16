@@ -4,18 +4,19 @@
 <body>
 	<div id="root">
 		<div th:replace="fragments/nav :: nav"></div>
-		<form>
-			<div class="form-group">
-				<label for="username">Username</label> <input v-model="username"
-					class="u-full-width" type="text" placeholder=""
-					id="username" />
-			</div>
-			<div class="form-group">
-				<label for="password">Password</label> <input v-model="password"
-					class="u-full-width" type="password" id="password" />
-			</div>
-		</form>
-		<button class="btn btn-primary" v-on:click="login">Login</button>
+		<center>
+			<form>
+				<div class="form-group">
+					<label for="username">Username</label> <input v-model="username"
+						class="u-full-width" type="text" placeholder="" id="username" />
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label> <input v-model="password"
+						class="u-full-width" type="password" id="password" />
+				</div>
+			</form>
+			<button class="btn btn-primary" v-on:click="login">Login</button>
+		</center>
 	</div>
 </body>
 <div th:replace="fragments/footer :: foot"></div>

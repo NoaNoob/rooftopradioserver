@@ -1,0 +1,6 @@
+Todo:
+- add Newsfeed/Blog
+- add Gallery Tab
+- add Social Media Buttons
+- Create global CSS Style
+- Tec Specs

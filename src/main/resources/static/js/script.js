@@ -12,7 +12,7 @@ function delete_cookie(name) {
 }
 
 window.Event = new Vue({
-    data: {isLoggedIn: false}
+    data: { isLoggedIn: false }
 });
 
 
