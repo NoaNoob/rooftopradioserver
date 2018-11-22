@@ -17,7 +17,7 @@ window.Event = new Vue({
 
 
 Vue.component('login-component',{
-    template: '<ul class="nav navbar-nav">'
+    template: '<ul class="nav navbar-nav" style="transform: scale(1.2);">'
     	+ '<li><a href="/home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>'
     	+ '<li><a href="/"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span> Artists</a></li>'
     	+ '<li><a href="/music"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Music</a></li>'

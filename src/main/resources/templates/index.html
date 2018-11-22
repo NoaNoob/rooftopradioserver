@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header('The Rooftop Radio Connection')" />
+<head
+	th:replace="fragments/header :: header('The Rooftop Radio Connection')" />
 <body>
 	<div id="root">
 
 		<div th:replace="fragments/nav :: nav"></div>
 
-		<!-- div class="alert alert-warning" role="alert">
-			<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-			Achtung: Diese Seite befindet sich gerade im Aufbau!
-		</div> -->
+		<div style="width: 90%; margin: auto;">
 
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th scope="col">Name</th>
-					<th scope="col">Location</th>
-					<th scope="col">Type</th>
-					<th scope="col">Genre</th>
-					<th scope="col">Internet</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr v-for="band in bands">
-					<td>{{band.name}}</td>
-					<td>{{band.location}}</td>
-					<td>{{band.type}}</td>
-					<td>{{band.genre}}</td>
-					<td><a :href=band.internet target="_blank">{{band.internet}}</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+			<table class="table table-striped"
+				style="background: radial-gradient(circle, #f7efe3, #b1bfd6)">
+				<thead>
+					<tr>
+						<th scope="col">Name</th>
+						<th scope="col">Location</th>
+						<th scope="col">Type</th>
+						<th scope="col">Genre</th>
+						<th scope="col">Internet</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="band in bands">
+						<td>{{band.name}}</td>
+						<td>{{band.location}}</td>
+						<td>{{band.type}}</td>
+						<td>{{band.genre}}</td>
+						<td><a :href=band.internet target="_blank">{{band.internet}}</a></td>
+					</tr>
+				</tbody>
+			</table>
 	<div th:replace="fragments/footer :: foot"></div>
+		</div>
+	</div>
 </body>
 <script>
     var app = new Vue({
