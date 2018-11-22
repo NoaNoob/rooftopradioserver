@@ -1,3 +1,7 @@
 body {
   background: radial-gradient(circle, #b1bfd6, #f7efe3);
 }
+
+.backreverse {
+  background: radial-gradient(circle, #f7efe3, #b1bfd6);
+}
