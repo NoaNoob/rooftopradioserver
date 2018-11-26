@@ -4,103 +4,84 @@
 <script async src="//www.instagram.com/embed.js"></script>
 <body>
 	<div id="root">
-		<div th:replace="fragments/nav :: nav"></div>
-		<div style="width: 85%;margin: auto;">
-			<ul
-				style="display: flex; align-items: center; justify-content: space-evenly; background-image: url('back1.jpg');border-radius: 15px 50px;">
-				<li style="display: inline-block; align-self: flex-start">
-					<div class="card"
-						style="width: 300px; heigth: 36rem; background-color: #fff;box-shadow: 5px 10px #36383d;border-radius: 5px;">
-						<p></p>
-						<center>
-							<img class="card-img-top" src="logo_sunrise.jpg"
-								alt="Card image cap">
-						</center>
-						<div class="card-body" style="margin: 10px 10px 10px 10px;">
-							<h5 class="card-title">Welcome</h5>
-							<p class="card-text">Willkommen auf der Rooftop Radio Band
-								Page! Viel Spaß beim Rumstöbern!</p>
-						</div>
+		<div th:replace="fragments/nav :: nav" class="rooftop-header"></div>
+		  <div class="site">
+
+			<div class="card rooftop-title">
+				<img class="card-img-top" src="logo_sunrise.jpg"
+						alt="Card image cap">
+				<div class="card-body" style="margin: 10px 10px 10px 10px;">
+					<h5 class="card-title">Welcome</h5>
+					<p class="card-text">Willkommen auf dem Rooftop Radio Portal!</p>
+					<p>Viel Spaß beim Rumstöbern!</p>
+				</div>
+			</div>
+	
+			<div class="card rooftop-card main1">
+					<iframe src="https://giphy.com/embed/joV1k1sNOT5xC" width="300" background-colour="black"
+						height="232" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+				<div class="card-body" style="margin: 10px 10px 10px 10px;">
+					<h5 class="card-title">
+						<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+						404 CSS Not Found - Under Construction
+					</h5>
+					<p class="card-text">Schön, dass ihr da seid - aber wir bauen
+						noch! Besucht uns in der Zwischenzeit auf Facebook:</p>
+					<a href="http://www.facebook.com/RooftopRadioBand" target="_blank">facebook.com/RooftopRadioBand</a>
+				</div>
+			</div>
+	
+			<div class="card rooftop-card main2">
+					<img class="card-img-top" src="fete_de_la_mugge.jpg"
+						alt="Card image cap">
+				<div class="card-body" style="margin: 10px 10px 10px 10px;">
+					<h5 class="card-title">Artists</h5>
+					<p class="card-text">
+						Natürlich haben wir nicht immer Zeit um euer Festival zu
+						bespielen. Deswegen findet <a href="/">hier</a> ihr eine Übersicht
+						über andere Musiker aus der Region.
+					</p>
+				</div>
+			</div>
+	
+			<div class="card rooftop-card video1">
+				<iframe width="300" height="232"
+					src="https://www.youtube.com/embed/XhmWdbrLBVA" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+				<div class="card-body" style="margin: 10px 10px 10px 10px;">
+					<h5 class="card-title">Featured Track: Astray</h5>
+					<p class="card-text">
+						Besucht uns auf Youtube <a
+							href="https://www.youtube.com/channel/UCasa0j7aoamnxFez2JYRQrA">Youtube</a>!
+					</p>
+				</div>
+			</div>
+	
+			<div class="card rooftop-card video2">
+				<iframe width="300" height="232"
+					src="https://www.youtube.com/embed/CaVYTRntDsk" frameborder="0"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+				<div class="card-body" style="margin: 10px 10px 10px 10px;text-align: center;">
+					<h5 class="card-title">Too Late</h5>
+					<p class="card-text"><span class="glyphicon glyphicon-music" aria-hidden="true"></span></p>
+				</div>
+			</div>
+
+			<div class="card rooftop-card contact">
+					<img class="card-img-top" src="world.jpg" alt="Card image cap">
+					<div class="card-body" style="margin: 10px 10px 10px 10px;">
+						<h5 class="card-title">Contact</h5>
+						<p class="card-text">
+							Bookinganfragen sendet ihr am besten per Mail an
+							band@rooftopradio.de oder per Nachricht über unsere <a
+								href="http://www.facebook.com/RooftopRadioBand" target="_blank">Facebook-Seite</a>!
+						</p>
 					</div>
-				</li>
-				<li style="display: inline-block; align-self: flex-start">
-					<div class="card"
-						style="width: 300px; heigth: 36rem; background-color: #fff;box-shadow: 5px 10px #36383d;border-radius: 5px;">
-						<center>
-							<iframe src="https://giphy.com/embed/joV1k1sNOT5xC" width="300"
-								height="232" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-						</center>
-						<div class="card-body" style="margin: 10px 10px 10px 10px;">
-							<h5 class="card-title">
-								<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-								404 CSS Not Found - Under Construction
-							</h5>
-							<p class="card-text">Schön, dass ihr da seid - aber wir bauen
-								noch! Besucht uns in der Zwischenzeit auf Facebook:</p>
-							<a href="http://www.facebook.com/RooftopRadioBand"
-								target="_blank">http://www.facebook.com/RooftopRadioBand</a>
-						</div>
-					</div>
-				</li>
-			</ul>
-			<ul
-				style="display: flex; align-items: flex-start; justify-content: space-evenly; background: radial-gradient(circle, #f7efe3, #b1bfd6);border-radius: 15px 50px;">
-				<li style="display: inline-block; align-self: flex-start">
-					<div class="card"
-						style="width: 300px; heigth: 36rem; background-color: #fff;box-shadow: 5px 10px #36383d;border-radius: 5px;">
-						<center>
-							<img class="card-img-top" src="fete_de_la_mugge.jpg"
-								alt="Card image cap">
-						</center>
-						<div class="card-body" style="margin: 10px 10px 10px 10px;">
-							<h5 class="card-title">Artists</h5>
-							<p class="card-text">
-								Natürlich haben wir nicht immer Zeit um euer Festival zu
-								bespielen. Deswegen findet <a href="/">hier</a> ihr eine
-								Übersicht über andere Musiker aus der Region.
-							</p>
-						</div>
-					</div>
-				</li>
-				<li style="display: inline-block; align-self: flex-start">
-					<div class="card"
-						style="width: 300px; heigth: 36rem; background-color: #fff;box-shadow: 5px 10px #36383d;border-radius: 5px;">
-						<center>
-							<iframe width="300" height="232"
-								src="https://www.youtube.com/embed/XhmWdbrLBVA" frameborder="0"
-								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-								allowfullscreen></iframe>
-						</center>
-						<div class="card-body" style="margin: 10px 10px 10px 10px;">
-							<h5 class="card-title">Featured Track: Astray</h5>
-							<p class="card-text">
-								Besucht uns auf Youtube <a
-									href="https://www.youtube.com/channel/UCasa0j7aoamnxFez2JYRQrA">Youtube</a>!
-							</p>
-						</div>
-					</div>
-				</li>
-				<li style="display: inline-block; align-self: flex-start">
-					<div class="card"
-						style="width: 300px; heigth: 36rem; background-color: #fff;box-shadow: 5px 10px #36383d;border-radius: 5px;">
-						<center>
-							<img class="card-img-top" src="world.jpg" alt="Card image cap">
-						</center>
-						<div class="card-body" style="margin: 10px 10px 10px 10px;">
-							<h5 class="card-title">Contact</h5>
-							<p class="card-text">
-								Bookinganfragen sendet ihr am besten per Mail an
-								band@rooftopradio.de oder per Nachricht über unsere <a
-									href="http://www.facebook.com/RooftopRadioBand" target="_blank">Facebook-Seite</a>!
-							</p>
-						</div>
-					</div>
-				</li>
-			</ul>
-			<ul
-				style="display: flex; align-items: flex-start; justify-content: space-evenly;  background-image: url('back1.jpg'); border-radius: 15px 50px;">
-				<li style="display: inline-block; align-self: flex-start;">
-					<div class="card" style="border-radius: 5px;">
+			</div>
+	
+			<div class="card insta">
 						<blockquote class="instagram-media" data-instgrm-captioned
 							data-instgrm-permalink="https://www.instagram.com/p/Bpw3IdnACNY/?utm_source=ig_embed&amp;utm_medium=loading"
 							data-instgrm-version="12"
@@ -191,20 +172,16 @@
 							</div>
 						</blockquote>
 					</div>
-				</li>
-
-				<li style="display: inline-block; align-self: flex-start">
-					<div class="card" style="background-color: #fff;border-radius: 5px;">
-						<iframe
-							src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FRooftopRadioBand%2Fposts%2F2221547881421092&width=500"
-							width="500" height="657" style="border: none; overflow: hidden"
-							scrolling="no" frameborder="0" allowTransparency="true"
-							allow="encrypted-media"></iframe>
-					</div>
-				</li>
-			</ul>
-			<div th:replace="fragments/footer :: foot"></div>
+	
+			<div class="card facebook">
+				<iframe
+					src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FRooftopRadioBand%2Fposts%2F2221547881421092&width=500"
+					width="500" height="657" style="border: none; overflow: hidden"
+					scrolling="no" frameborder="0" allowTransparency="true"
+					allow="encrypted-media"></iframe>
+			</div>
 		</div>
+		<div th:replace="fragments/footer :: foot" class="footer"></div>
 	</div>
 </body>
 <script>

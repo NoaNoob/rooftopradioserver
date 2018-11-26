@@ -27,8 +27,21 @@ public class BandController {
 		bandService.initBandData();
 	}
 
+	@RequestMapping("/addband") //TODO hier gehts weiter
+	public void addBand(@RequestParam(value = "name") String name,
+			@RequestParam(value = "location") String location,
+			@RequestParam(value = "type") String type,
+			@RequestParam(value = "genre") String genre,
+			@RequestParam(value = "internet") String internet) {
+
+		Band band = Band.builder().name(name).location(location).type(type).genre(genre).internet(internet).build();
+
+		
+//		bandService.addBand(band);
+	}
+
 	@RequestMapping("/deleteband")
-	public void deleteBand(@RequestParam(value = "id") Long id) {
+	public void deleteBand(@RequestParam(value = "name") Long id) {
 
 		bandService.deleteBand(id);
 	}

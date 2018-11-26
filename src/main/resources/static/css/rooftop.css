@@ -1,7 +1,98 @@
 body {
-  background: radial-gradient(circle, #b1bfd6, #36383d);
+	background: radial-gradient(circle, #b1bfd6, #36383d);
 }
 
 .backreverse {
-  background: radial-gradient(circle, #f7efe3, #b1bfd6);
+	background: radial-gradient(circle, #f7efe3, #b1bfd6);
+}
+
+.site {
+	display: grid;
+	justify-items: center;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"title"
+	"main1"
+	"video1"
+	"main2"
+	"video2"
+	"insta"
+	"facebook"
+	"contact";
+}
+
+@media screen and (min-width: 50em) {
+	.site {
+	justify-items: center;
+	grid-template-columns: 1fr 2fr 2fr 1fr;
+		grid-template-rows: auto;
+		grid-template-areas: ". title contact ."
+			". main1 main2 ."
+			". video1 video2 ."
+			". insta facebook .";
+	}
+}
+
+@media screen and (min-width: 100em) {
+	.site {
+	justify-items: center;
+	grid-template-columns: 1fr 2fr 2fr 2fr;
+		grid-template-rows: auto;
+		grid-template-areas: "title main1 main2 contact"
+			". video1 video2 ."
+			". insta facebook .";
+	}
+}
+
+
+.rooftop-header {
+	grid-area: header;
+	background-color: brown;
+	grid-column-start: 1;
+	grid-column-end: 4;
+	grid-row-start: row1-start;
+	grid-row-end: 1;
+}
+
+.rooftop-title {
+	font-size: large;
+	grid-area: title;
+	width: 300px;
+	heigth: 36rem;
+	background-color: #fff;
+	box-shadow: 5px 10px #36383d;
+	border-radius: 5px;
+}
+
+.rooftop-card {
+	font-size: large;
+	place-self: center;
+	width: 300px;
+	heigth: 36rem;
+	background-color: #fff;
+	box-shadow: 5px 10px #36383d;
+	border-radius: 5px;
+}
+
+.main1 {
+	grid-area: main1;
+}
+.main2 {
+	grid-area: main2;
+}
+.video1 {
+	grid-area: video1;
+}
+.video2 {
+	grid-area: video2;
+}
+.contact {
+	grid-area: contact;
+}
+.insta {
+	grid-area: insta;
+}
+.facebook {
+	grid-area: facebook;
 }
