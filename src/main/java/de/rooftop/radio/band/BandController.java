@@ -37,11 +37,11 @@ public class BandController {
 		Band band = Band.builder().name(name).location(location).type(type).genre(genre).internet(internet).build();
 
 		
-//		bandService.addBand(band);
+		bandService.addBand(band);
 	}
 
 	@RequestMapping("/deleteband")
-	public void deleteBand(@RequestParam(value = "name") Long id) {
+	public void deleteBand(@RequestParam(value = "id") Long id) {
 
 		bandService.deleteBand(id);
 	}

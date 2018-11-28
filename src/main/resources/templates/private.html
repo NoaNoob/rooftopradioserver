@@ -4,6 +4,7 @@
 <body>
 	<div id="root">
 		<div th:replace="fragments/nav :: nav"></div>
+	<center>
 		<h3>Add new Band</h3>
 		<form>
 			<div class="form-group">
@@ -33,6 +34,7 @@
 			</div>
 		</form>
 		<button class="btn btn-primary" v-on:click="save">Save</button>
+	</center>
 
 		<table class="table table-striped">
 			<thead>
@@ -80,18 +82,13 @@
         methods: {
             save(){
                 var params = new URLSearchParams();
-                params.append('grant_type', 'password');
-                params.append('username', this.username);
-                params.append('password',this.password);
-                axios({
-                    method:'post',
-                    url:'oauth/token',
-                    auth:{username:'my-trusted-client',password:'secret'},
-                    headers: {"Content-type": "application/x-www-form-urlencoded; charset=utf-8"},
-                    data:params
-                }).then(function(response){
-                    set_cookie("access_token",response.data.access_token);
-                    document.location.replace("/private?access_token=" + getCookie("access_token"));
+           		axios.get("/addband?access_token=" + getCookie("access_token")
+           				+ "&name=" + this.name
+           				+ "&location=" + this.location
+           				+ "&type=" + this.type
+           				+ "&genre=" + this.genre
+           				+ "&internet=" + this.internet).then(function(response){
+	            		this.fetchBands();
                 });
             },
             initbands(){
@@ -110,7 +107,8 @@
             },
             deleteband(band){
             	if (confirm('Delete ' + band.name + '?')) {
-            		axios.get("/deleteband?id=" + band.id + "&access_token=" + getCookie("access_token")).then(function(response){
+            		axios.get("/deleteband?id=" + band.id + "&access_token=" + getCookie("access_token"))
+            		.then(function(response){
 	            		this.fetchBands();
             		}.bind(this));
             	} else {
