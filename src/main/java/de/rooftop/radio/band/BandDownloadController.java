@@ -41,8 +41,7 @@ public class BandDownloadController {
 
 		try {
 			List<Band> bands = bandService.getBandsFromStream(file.getInputStream());
-
-			bands.stream().forEach(band -> bandService.addBand(band));
+			bandService.initBandData(bands);
 
 		} catch (IOException e) {
 

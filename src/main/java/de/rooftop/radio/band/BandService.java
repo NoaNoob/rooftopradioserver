@@ -119,11 +119,15 @@ public class BandService {
 
 	public void initBandData() {
 
-		List<Band> bands = getBandsFromCsvFile();
+		initBandData(getBandsFromCsvFile());
+	}
+
+	public void initBandData(List<Band> bands) {
+
 		bandRepository.deleteAll();
 		bandRepository.saveAll(bands);
 	}
-	
+
 	public void addBand(Band band) {
 
 		bandRepository.save(band);
