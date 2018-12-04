@@ -27,7 +27,7 @@ public class BandController {
 		bandService.initBandData();
 	}
 
-	@RequestMapping("/addband") //TODO hier gehts weiter
+	@RequestMapping("/addband")
 	public void addBand(@RequestParam(value = "name") String name,
 			@RequestParam(value = "location") String location,
 			@RequestParam(value = "type") String type,
@@ -35,7 +35,6 @@ public class BandController {
 			@RequestParam(value = "internet") String internet) {
 
 		Band band = Band.builder().name(name).location(location).type(type).genre(genre).internet(internet).build();
-
 		
 		bandService.addBand(band);
 	}

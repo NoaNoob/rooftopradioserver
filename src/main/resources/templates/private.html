@@ -18,7 +18,7 @@
 					id="location" />
 			</div>
 			<div class="form-group">
-				<label for="type">Name</label> <input v-model="type"
+				<label for="type">Type</label> <input v-model="type"
 					class="u-full-width" type="text" placeholder=""
 					id="type" />
 			</div>
@@ -81,15 +81,24 @@
         },
         methods: {
             save(){
-                var params = new URLSearchParams();
-           		axios.get("/addband?access_token=" + getCookie("access_token")
-           				+ "&name=" + this.name
-           				+ "&location=" + this.location
-           				+ "&type=" + this.type
-           				+ "&genre=" + this.genre
-           				+ "&internet=" + this.internet).then(function(response){
-	            		this.fetchBands();
-                });
+            	if (confirm('Save new band ' + this.name + '?')) {
+	            	
+            		var params = new URLSearchParams();
+	           		
+	            	axios.get("/addband?access_token=" + getCookie("access_token")
+	           				+ "&name=" + this.name
+	           				+ "&location=" + this.location
+	           				+ "&type=" + this.type
+	           				+ "&genre=" + this.genre
+	           				+ "&internet=" + this.internet).then(function(response) {
+	           		            		this.fetchBands();
+			           		            this.name = '';
+			           		         	this.location = '';
+			           		      		this.type = '';
+			           		   			this.genre = '';
+			           					this.internet = '';
+	                				}.bind(this));
+            	}
             },
             initbands(){
             	if (confirm('Are you sure you want RESET the database?')) {

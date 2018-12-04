@@ -56,8 +56,8 @@ body {
 }
 
 .rooftop-title {
-	font-size: large;
 	grid-area: title;
+	font-size: large;
 	width: 300px;
 	heigth: 36rem;
 	background-color: #fff;
