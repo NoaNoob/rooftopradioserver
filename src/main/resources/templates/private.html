@@ -58,7 +58,33 @@
 			</tbody>
 		</table>
 
+	    <p></p>
+		<button class="btn btn-primary" onclick="location.href = '/download';" >Aktuelle Bandliste herunterladen</button>
+		<p></p>
+		<div class="container">
+		    <p></p>
+		    <p>Neue Bandliste hochladen</p>
+		    <form method="POST" action="/upload" enctype="multipart/form-data">
+		    <table>
+		        <colgroup>
+		            <col style="width: 33%"/>
+		           <col style="width: 33%"/>
+		           <col style="width: 33%"/>
+		       </colgroup>
+		       <tr>
+		           <td colspan="3"></td>
+		       </tr>
+		       <tr>
+		           <td><input type="file" name="file"/></td>
+		           <td><input type="submit" value="Upload"/></td>
+		           <td></td>
+		       </tr>
+		    </table>
+		    </form>
+		</div>
+
 		<button class="btn btn-primary" v-on:click="initbands">Reset all Banddata</button>
+
 	</div>
 </body>
 <div th:replace="fragments/footer :: foot"></div>

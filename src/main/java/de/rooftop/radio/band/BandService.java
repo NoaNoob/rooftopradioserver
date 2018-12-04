@@ -28,14 +28,26 @@ public class BandService {
 
 	@Autowired
 	BandRepository bandRepository;
+
+	public List<Band> getBandsFromCsvFile() {
+		List<Band> bands = new ArrayList<>();
+
+		try {
+			return getBandsFromStream(resourceLoader.getResource("classpath:bands.csv").getInputStream());
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			statusService.logException(e);
+		}
+		
+		return bands;
+	}
 	
-	private List<Band> getBandsFromCsvFile() {
+	public List<Band> getBandsFromStream(InputStream stream) {
 
 		List<Band> bands = new ArrayList<>();
 
 		try {
 
-			InputStream stream = resourceLoader.getResource("classpath:bands.csv").getInputStream();
 			InputStreamReader inputStreamReader = new InputStreamReader(stream);
 			BufferedReader reader = new BufferedReader(inputStreamReader);
 
