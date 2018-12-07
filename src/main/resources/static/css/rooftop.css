@@ -2,10 +2,6 @@ body {
 	background: radial-gradient(circle, #b1bfd6, #36383d);
 }
 
-a {
-	  color: #fff;
-}
-
 .backreverse {
 	background: radial-gradient(circle, #f7efe3, #b1bfd6);
 }
@@ -70,20 +66,22 @@ a {
 	grid-area: title;
 	font-size: large;
 	width: 300px;
-	heigth: 34rem;
+	heigth: 30rem;
 	background-color: black;
-	box-shadow: 5px 10px #36383d;
+/* 	box-shadow: 5px 10px #36383d;
 	border-radius: 5px;
-}
+ */}
 
 .rooftop-card {
 	font-size: large;
 	place-self: center;
-	width: 300px;
+	width: 304px;
 	heigth: 36rem;
 	background-color: black;
-	box-shadow: 5px 10px #36383d;
-	border-radius: 5px;
+    border: solid 2px #fff;
+    box-shadow:
+        inset 10px 0 120px #f0f,  /* left magenta */
+        inset -10px 0 120px #0ff; /* right cyan */
 }
 
 .main1 {
@@ -108,9 +106,7 @@ a {
 	grid-area: facebook;
 }
 
-
-
-
+/* Flip Cards */
 
 .flip-card {
   background-color: transparent;
@@ -153,12 +149,20 @@ a {
   z-index: 1;
 }
 
+
+/* Glow */
+
+
 .glow {
   color: #fff;
   text-align: center;
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
+}
+
+.glow a {
+  color: #80ffff;
 }
 
 @-webkit-keyframes glow {
@@ -169,6 +173,8 @@ a {
     text-shadow: 0 0 8px #fff, 0 0 13px #ff4da6, 0 0 18px #ff4da6, 0 0 22px #ff4da6, 0 0 28px #ff4da6, 0 0 33px #ff4da6, 0 0 37px #ff4da6;
   }
 }
+
+/* Fancy Background */
 
 .insidebox {
 	background-color: black;
