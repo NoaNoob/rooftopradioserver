@@ -31,11 +31,14 @@ body {
 	.site {
 	justify-items: center;
 	grid-template-columns: 1fr 2fr 2fr 1fr;
-		grid-template-rows: auto;
+		grid-template-rows: auto auto 60px 100px 60px 100px 60px;
 		grid-template-areas: ". title contact ."
 			". main1 main2 ."
+		  ". . . ."
 			". video1 video2 ."
-			". insta facebook .";
+		  ". . . ."
+			". insta facebook ."
+		  ". . . .";
 	}
 }
 
@@ -43,16 +46,16 @@ body {
 	.site {
 	justify-items: center;
 	grid-template-columns: 1fr 2fr 2fr 2fr;
-	grid-template-rows: 30px auto 30px auto 30px auto;
+	grid-template-rows: 30px auto 60px 100px 30px 100px 60px;
 		grid-template-areas: ". . . ."
 		  "title main1 main2 contact"
 		  ". . . ."
 			". video1 video2 ."
 			". . . ."
-			". insta facebook .";
+			". insta facebook ."
+			". . . .";
 	}
 }
-
 
 .rooftop-header {
 	grid-area: header;
@@ -195,10 +198,10 @@ body {
 background: linear-gradient(270deg, #000000, #000000, #e91aff, #000000, #000000, #000000, #2de6ec, #000000);
 background-size: 1200% 1200%;
 
--webkit-animation: AnimationName 120s ease infinite;
+/* -webkit-animation: AnimationName 120s ease infinite;
 -moz-animation: AnimationName 120s ease infinite;
 animation: AnimationName 120s ease infinite;
-
+ */
 }
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 50%}
