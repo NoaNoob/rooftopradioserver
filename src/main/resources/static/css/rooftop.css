@@ -20,13 +20,14 @@ body {
 	grid-template-rows: auto;
 	grid-template-areas: 
 	"title"
-	"main1"
+	"contact"
 	"video1"
-	"main2"
 	"video2"
 	"insta"
 	"facebook"
-	"contact";
+	"main1"
+	"main2"
+	;
 }
 
 @media screen and (min-width: 50em) {
@@ -47,7 +48,7 @@ body {
 @media screen and (min-width: 100em) {
 	.site {
 	justify-items: center;
-	grid-template-columns: 1fr 2fr 2fr 2fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 30px auto 60px 100px 30px 100px 60px;
 		grid-template-areas: ". . . ."
 		  "title main1 main2 contact"
@@ -72,7 +73,7 @@ body {
 	grid-area: title;
 	font-size: large;
 	width: 300px;
-	heigth: 30rem;
+	align-self: center;
 	background-color: black;
 
 }
@@ -80,6 +81,7 @@ body {
 .rooftop-card {
 	font-size: large;
 	place-self: center;
+	align-self: stretch;
 	width: 304px;
 	heigth: 36rem;
 	background-color: black;
