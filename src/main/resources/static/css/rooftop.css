@@ -72,10 +72,8 @@ body {
 .rooftop-title {
 	grid-area: title;
 	font-size: large;
+	font-style: center;
 	width: 300px;
-	align-self: center;
-	background-color: black;
-
 }
 
 .rooftop-card {
