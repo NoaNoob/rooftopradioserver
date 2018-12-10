@@ -3,7 +3,8 @@
 <head th:replace="fragments/header :: header('Login')" />
 <body>
 	<div id="root">
-		<div th:replace="fragments/nav :: nav"></div>
+		<login-component></login-component>
+
 		<div class="site insidebox">
 			<div class="card rooftop-title">
 				<img class="card-img-top" src="logo_neon.jpg" alt="Card image cap">
@@ -28,17 +29,16 @@
 			</div>
 
 			<div class="card rooftop-card main2 glow">
-				<a href="/"> <img class="card-img-top"
+				<img class="card-img-top"
 					src="fete_de_la_mugge.jpg" alt="Card image cap">
 					<div class="card-body" style="margin: 10px 10px 10px 10px;">
 						<h5 class="card-title">Artists</h5>
 						<p class="card-text">
 							Sollten wir wirklich mal keine Zeit haben euer Festival zu
-							bespielen findet ihr hier ihr eine Übersicht über
+							bespielen findet ihr <a href="/">hier ihr eine Übersicht</a> über
 							andere Musiker aus der Region.
 						</p>
-					</div>
-				</a>
+					</div>				
 			</div>
 
 			<div class="card video1">

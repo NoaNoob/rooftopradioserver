@@ -17,14 +17,14 @@ window.Event = new Vue({
 
 
 Vue.component('login-component',{
-    template: '<ul class="nav navbar-nav" style="transform: scale(1.2);">'
-    	+ '<li><a href="/home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>'
-    	+ '<li><a href="/"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span> Artists</a></li>'
-    	+ '<!-- li><a href="/music"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Music</a></li -->'
-    	+ '<li v-if=!isLoggedIn()><a href="/login"> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>'
-    	+ '<li v-if=isLoggedIn()><a v-on:click="navigateSettings"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Settings</a></li>'
-    	+ '<li v-if=isLoggedIn()><a v-on:click="logOut"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout ({{logged_in_msg}})</a></li>'
-    	+ '</ul>',
+        template: '<div class="topnav">'
+        	+ '<a href="/home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>'
+        	+ '<a href="/"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span> Artists</a>'
+        	+ '<!-- li><a href="/music"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Music</a> -->'
+        	+ '<a v-if=!isLoggedIn() href="/login"> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>'
+        	+ '<a v-if=isLoggedIn() v-on:click="navigateSettings"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Settings</a>'
+        	+ '<a v-if=isLoggedIn() v-on:click="logOut"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout ({{logged_in_msg}})</a>'
+        	+ '</div>',
     data: function(){
         return {logged_in_msg : ""}
     },

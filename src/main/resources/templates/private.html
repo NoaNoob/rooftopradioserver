@@ -3,41 +3,52 @@
 <head th:replace="fragments/header :: header('Login')" />
 <body>
 	<div id="root">
-		<div th:replace="fragments/nav :: nav"></div>
-	<center>
-		<h3>Add new Band</h3>
-		<form>
-			<div class="form-group">
-				<label for="username">Name</label> <input v-model="name"
-					class="u-full-width" type="text" placeholder=""
-					id="name" />
-			</div>
-			<div class="form-group">
-				<label for="location">Location</label> <input v-model="location"
-					class="u-full-width" type="text" placeholder=""
-					id="location" />
-			</div>
-			<div class="form-group">
-				<label for="type">Type</label> <input v-model="type"
-					class="u-full-width" type="text" placeholder=""
-					id="type" />
-			</div>
-			<div class="form-group">
-				<label for="genre">Genre</label> <input v-model="genre"
-					class="u-full-width" type="text" placeholder=""
-					id="genre" />
-			</div>
-			<div class="form-group">
-				<label for="internet">Internet</label> <input v-model="internet"
-					class="u-full-width" type="text" placeholder=""
-					id="internet" />
-			</div>
-		</form>
-		<button class="btn btn-primary" v-on:click="save">Save</button>
-	</center>
+		<login-component></login-component>
+		<table>
+			<tr>
+				<td><h3>NEW</h3></td>
+				<form>
+				<td>Name<input v-model="name" class="u-full-width" type="text"
+					placeholder="" id="name" /></td>
+				<td>Location<input v-model="location" class="u-full-width" type="text"
+					placeholder="" id="location" /></td>
+			</tr><tr>
+				<td>Type<input v-model="type" class="u-full-width" type="text"
+					placeholder="" id="type" /></td>
+				<td>Genre<input v-model="genre" class="u-full-width" type="text"
+					placeholder="" id="genre" /></td>
+				<td>Internet<input v-model="internet" class="u-full-width" type="text"
+					placeholder="" id="internet" /></td>
+				<td><button class="btn btn-primary" v-on:click="save">Save</button></td>
+				</form>
+			</tr>
+
+			<tr>
+				<td>Aktuelle Bandliste herunterladen</td>
+				<td><button class="btn btn-primary"
+						onclick="location.href = '/download';">Download</button></td>
+			</tr>
+			<tr>
+				<td>Neue Bandliste hochladen</td>
+				<td>
+					<form method="POST" action="/upload" enctype="multipart/form-data">
+						<input class="btn btn-primary" type="file" name="file" /><input
+							class="btn btn-primary" type="submit" value="Upload" />
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td>Initiale Liste laden</td>
+				<td>
+					<button class="btn btn-primary" v-on:click="initbands">Reset
+						all Banddata</button>
+				</td>
+			</tr>
+		</table>
+
 
 		<table class="table table-striped"
-				style="background: radial-gradient(circle, #f7efe3, #b1bfd6)">
+			style="background: radial-gradient(circle, #f7efe3, #b1bfd6)">
 			<thead>
 				<tr>
 					<th scope="col">Name</th>
@@ -58,33 +69,6 @@
 				</tr>
 			</tbody>
 		</table>
-
-	    <p></p>
-		<button class="btn btn-primary" onclick="location.href = '/download';" >Aktuelle Bandliste herunterladen</button>
-		<p></p>
-		<div class="container">
-		    <p></p>
-		    <p>Neue Bandliste hochladen</p>
-		    <form method="POST" action="/upload" enctype="multipart/form-data">
-		    <table>
-		        <colgroup>
-		            <col style="width: 33%"/>
-		           <col style="width: 33%"/>
-		           <col style="width: 33%"/>
-		       </colgroup>
-		       <tr>
-		           <td colspan="3"></td>
-		       </tr>
-		       <tr>
-		           <td><input class="btn btn-primary" type="file" name="file"/></td>
-		           <td><input class="btn btn-primary" type="submit" value="Upload"/></td>
-		           <td></td>
-		       </tr>
-		    </table>
-		    </form>
-		</div>
-
-		<button class="btn btn-primary" v-on:click="initbands">Reset all Banddata</button>
 
 	</div>
 </body>
@@ -117,7 +101,8 @@
 	           				+ "&location=" + this.location
 	           				+ "&type=" + this.type
 	           				+ "&genre=" + this.genre
-	           				+ "&internet=" + this.internet).then(function(response) {
+	           				+ "&internet=" + this.internet)
+	           				  .then(function(response) {
 	           		            		this.fetchBands();
 			           		            this.name = '';
 			           		         	this.location = '';
