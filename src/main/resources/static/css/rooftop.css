@@ -30,7 +30,7 @@ body {
 	;
 }
 
-@media screen and (min-width: 50em) {
+@media screen and (min-width: 40em) {
 	.site {
 	justify-items: center;
 	grid-template-columns: 1fr 2fr 2fr 1fr;
@@ -45,7 +45,7 @@ body {
 	}
 }
 
-@media screen and (min-width: 100em) {
+@media screen and (min-width: 80em) {
 	.site {
 	justify-items: center;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -88,6 +88,13 @@ body {
         inset 10px 0 120px #f0f,  /* left magenta */
         inset -10px 0 120px #0ff; /* right cyan */
 
+}
+
+audio
+{
+-moz-border-radius:7px 7px 7px 7px ;
+-webkit-border-radius:7px 7px 7px 7px ;
+border-radius:7px 7px 7px 7px ;
 }
 
 .main1 {
