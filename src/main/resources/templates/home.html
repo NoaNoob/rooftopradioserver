@@ -2,10 +2,18 @@
 <html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header :: header('Login')" />
 <body>
+
+<video id="video_background" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0"> 
+   <source src="fiber640.mp4" type="video/mp4"> 
+Video not supported </video>
+ 
+<div id="video_pattern"></div>
+
 	<div id="root">
 		<login-component></login-component>
 
-		<div class="site insidebox">
+<!-- 		<div class="site insidebox">
+ -->		<div class="site">
 			<div class="card rooftop-title">
 				<img class="card-img-top" src="logo_neon.png" alt="Card image cap">
 				<div class="card-body" style="margin: 10px 10px 10px 10px;">
