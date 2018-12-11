@@ -14,6 +14,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
 		http.authorizeRequests().antMatchers("/").permitAll().
 		antMatchers("/home").permitAll().
+		antMatchers("/impressum").permitAll().
 		antMatchers("/private").authenticated().
 		antMatchers("/initbands").authenticated().
 		antMatchers("/login").permitAll().

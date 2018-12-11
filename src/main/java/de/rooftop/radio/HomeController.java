@@ -22,9 +22,9 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/music")
-	public String music() {
-		return "music";
+	@RequestMapping(value = "/impressum")
+	public String impressum() {
+		return "impressum";
 	}
 
 	@RequestMapping(value = "/private")
