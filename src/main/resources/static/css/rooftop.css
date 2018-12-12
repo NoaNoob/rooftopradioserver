@@ -14,36 +14,18 @@ body {
 /* LAYOUT */
 
 .site {
-	display: grid;
-	justify-items: center;
-	grid-template-columns: 1fr;
-	grid-template-rows: auto;
-	grid-template-areas: 
-	"title"
-	"contact"
-	"insta"
-	"facebook"
-	"video1"
-	"video2"
-	"main1"
-	"artists"
-	;
+justify-items: center;
+grid-template-columns: 1fr 2fr 2fr 1fr;
+	grid-template-rows: auto auto 60px 100px 60px 100px 60px;
+	grid-template-areas: ". title contact ."
+		". main1 artists ."
+		". . . ."
+		". insta facebook ."
+		". . . ."
+		". video1 video2 ."
+		". . . .";
 }
 
-@media screen and (min-width: 40em) {
-	.site {
-	justify-items: center;
-	grid-template-columns: 1fr 2fr 2fr 1fr;
-		grid-template-rows: auto auto 60px 100px 60px 100px 60px;
-		grid-template-areas: ". title contact ."
-			". main1 artists ."
-		  ". . . ."
-			". insta facebook ."
-		  ". . . ."
-			". video1 video2 ."
-		  ". . . .";
-	}
-}
 
 @media screen and (min-width: 80em) {
 	.site {
