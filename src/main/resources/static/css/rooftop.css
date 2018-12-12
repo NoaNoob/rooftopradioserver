@@ -90,6 +90,14 @@ body {
 
 }
 
+.rooftop-player {
+	grid-area: main1;
+	grid-column-start: 1;
+	grid-column-end: span col4-start;
+	grid-row-start: 2
+	grid-row-end: span 2
+}
+
 audio
 {
 -moz-border-radius:7px 7px 7px 7px ;
@@ -148,8 +156,8 @@ border-radius:7px 7px 7px 7px ;
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #0ff;
-  color: black;
+  	color: white;
+	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 50px #e60073;
 }
 
 /* Add a color to the active/current link */
