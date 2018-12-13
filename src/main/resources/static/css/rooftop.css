@@ -1,9 +1,9 @@
 body {
-	background: radial-gradient(circle, #f0f, #0ff);
+	background: radial-gradient(circle, #f0f, rgb(0, 0, 0));
 }
 
 .backreverse {
-	background: radial-gradient(circle, #0ff, #f0f);
+	background: radial-gradient(circle, rgb(0, 0, 0), #f0f);
 }
 
 .sociallogo {
@@ -250,3 +250,7 @@ animation: AnimationName 120s ease infinite;
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
+
+/* modernizr */
+ul{-webkit-column-count: 3;-moz-column-count: 3;column-count: 3;}li{color:green}.no-audio li.audio{ color: red; }.no-cssgrid li.cssgrid{ color: red; }.no-cssgridlegacy li.cssgridlegacy{ color: red; }.no-video li.video{ color: red; }.no-setclasses li.setclasses{ color: red; }
+

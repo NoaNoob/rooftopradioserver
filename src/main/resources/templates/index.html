@@ -5,7 +5,9 @@
 <body>
 	<div id="root" class="insidebox">
 
-		<login-component></login-component>
+		<login-component>
+			<div th:replace="fragments/fallback :: fallback"></div>
+		</login-component>
 
 		<div style="width: 90%; margin: auto;">
 

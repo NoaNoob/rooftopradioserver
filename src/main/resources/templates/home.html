@@ -10,7 +10,9 @@ Video not supported </video>
 <div id="video_pattern"></div>
 
 	<div id="root">
-		<login-component></login-component>
+		<login-component>
+			<div th:replace="fragments/fallback :: fallback"></div>
+		</login-component>
 
 		<div class="site">
 			<div class="card rooftop-title">
