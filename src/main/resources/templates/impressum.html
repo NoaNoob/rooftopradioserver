@@ -10,6 +10,8 @@ Video not supported </video>
 <div id="video_pattern"></div>
 
 	<div id="root">
+
+		<div th:replace="fragments/fallback :: fallback"></div>
 		<login-component></login-component>
 
 		<div class="site">
@@ -68,7 +70,7 @@ Video not supported </video>
 var app = new Vue({
     el: '#root',
     data : { },
-    mounted(){
+    mounted : function(){
 
     },
     methods: {

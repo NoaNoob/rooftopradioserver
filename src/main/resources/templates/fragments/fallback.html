@@ -1,20 +1,16 @@
 <div th:fragment="fallback" th:remove="tag">
-	<div class="alert alert-info">
-		<strong>Something went wrong!</strong> Looks like your Browser doesn't
-		support some fancy new Features. The page will not be displayed
-		correctly!
-		<p>
-		<p>HTML5 Feature Checks:
+	<div class="alert alert-info fallback">
+		Site cannot be displayed correctly! Maybe your browser does not support one of the following HTML5-Features: <br>
 		<ul>
 			<li class="audio">audio</li>
 			<li class="cssgrid">cssgrid</li>
 			<li class="video">video</li>
 		</ul>
-		</p>
-			<a href="https://www.facebook.com/RooftopRadioBand/" target="_blank">
-				<img class="sociallogo" src="facebook.png"><span
-				style="font-size: large;"> Visit us on facebook instead</span>
-			</a>
-		</p>
 	</div>
 </div>
+<script>
+$(document).ready(function() {
+	if  ($("message") != null)
+		$("message").delay(2000).fadeIn(500);
+});
+</script>

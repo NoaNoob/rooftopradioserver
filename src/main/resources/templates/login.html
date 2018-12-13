@@ -3,6 +3,7 @@
 <head th:replace="fragments/header :: header('Login')" />
 <body>
 	<div id="root"  class="insidebox">
+		<div th:replace="fragments/fallback :: fallback"></div>
 		<login-component></login-component>
 		<center>
 			<form>
@@ -23,7 +24,7 @@
 <script>
     var app = new Vue({
         el: '#root',
-        mounted() {
+        mounted : function() {
             Event.$on('logged-in',function(){
                 window.location.replace("/");
             })

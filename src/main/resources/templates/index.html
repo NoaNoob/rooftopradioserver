@@ -5,8 +5,9 @@
 <body>
 	<div id="root" class="insidebox">
 
+		<div th:replace="fragments/fallback :: fallback"></div>
+
 		<login-component>
-			<div th:replace="fragments/fallback :: fallback"></div>
 		</login-component>
 
 		<div style="width: 90%; margin: auto;">
@@ -32,19 +33,19 @@
 					</tr>
 				</tbody>
 			</table>
-	<div th:replace="fragments/footer :: foot"></div>
 		</div>
 	</div>
 </body>
+<div th:replace="fragments/footer :: foot"></div>
 <script>
     var app = new Vue({
         el: '#root',
         data : {bands: []},
-        mounted(){
+        mounted : function(){
             this.fetchBands();
         },
         methods: {
-            fetchBands(){
+            fetchBands : function(){
                 axios.get("/bands").then(function(response){
                     this.bands = response.data;
                 }.bind(this));

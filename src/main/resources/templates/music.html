@@ -10,16 +10,17 @@ Video not supported </video>
 <div id="video_pattern"></div>
 
 	<div id="root">
+		<div th:replace="fragments/fallback :: fallback"></div>
 		<login-component></login-component>
 
 		<div class="site">
-			<!-- div class="card rooftop-title">
+			<div class="card rooftop-title">
 				<img class="card-img-top" src="logo_neon.png" alt="Card image cap">
 				<div class="card-body" style="margin: 10px 10px 10px 10px;">
 					<p></p>
 					<p class="card-text glow">FRESH ROCK FROM GÖRLITZ</p>
 				</div>
-			</div-->
+			</div>
 
 			<div class="card rooftop-player glow">
 					<div class="card-body" style="margin: 10px 10px 10px 10px;">
@@ -86,7 +87,7 @@ Video not supported </video>
 var app = new Vue({
     el: '#root',
     data : { },
-    mounted(){
+    mounted : function(){
 
     },
     methods: {

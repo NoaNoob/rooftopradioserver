@@ -252,5 +252,22 @@ animation: AnimationName 120s ease infinite;
 }
 
 /* modernizr */
-ul{-webkit-column-count: 3;-moz-column-count: 3;column-count: 3;}li{color:green}.no-audio li.audio{ color: red; }.no-cssgrid li.cssgrid{ color: red; }.no-cssgridlegacy li.cssgridlegacy{ color: red; }.no-video li.video{ color: red; }.no-setclasses li.setclasses{ color: red; }
+
+.fallback {
+	display: none;
+}
+
+ul{-webkit-column-count: 3;-moz-column-count: 3;column-count: 3;}
+li{color:green}
+.no-audio li.audio{ color: red; }
+.no-cssgrid li.cssgrid{ color: red; }
+.no-cssgridlegacy li.cssgridlegacy{ color: red; }
+.no-video li.video{ color: red; }
+.no-setclasses li.setclasses{ color: red; }
+
+.no-cssgrid div.fallback{ display: inherit; }
+
+.no-cssgrid div.main1{ display: none; }
+.no-cssgrid div.artists{ display: none; }
+.no-cssgrid div.contact{ display: none; }
 

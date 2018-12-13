@@ -29,7 +29,7 @@ Vue.component('login-component',{
     data: function(){
         return {logged_in_msg : ""}
     },
-    mounted(){
+    mounted : function(){
         if(getCookie("access_token")){
             axios.get("/getUsername?access_token=" + getCookie("access_token"))
                 .then(function(response){
@@ -44,7 +44,7 @@ Vue.component('login-component',{
         }
     },
     methods : {
-        logOut(){
+        logOut : function(){
             axios.get("/logout?access_token="+getCookie("access_token"))
                 .then(function(response){
                     window.Event.isLoggedIn = false;
@@ -52,10 +52,10 @@ Vue.component('login-component',{
                     delete_cookie("access_token")
                 }.bind(this))
         },
-        isLoggedIn(){
+        isLoggedIn : function(){
             return window.Event.isLoggedIn;
         },
-        navigateSettings() {
+        navigateSettings : function() {
             document.location.replace("/private?access_token=" + getCookie("access_token"));        	
         }
     }
