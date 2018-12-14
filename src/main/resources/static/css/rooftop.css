@@ -251,7 +251,7 @@ animation: AnimationName 120s ease infinite;
     100%{background-position:0% 50%}
 }
 
-/* modernizr */
+/* modernizr Fallbacklayout*/
 
 .fallback {
 	display: none;
@@ -265,9 +265,21 @@ li{color:green}
 .no-video li.video{ color: red; }
 .no-setclasses li.setclasses{ color: red; }
 
-.no-cssgrid div.fallback{ display: inherit; }
+/* .no-cssgrid div.fallback{ display: inherit; } */
 
-.no-cssgrid div.main1{ display: none; }
-.no-cssgrid div.artists{ display: none; }
-.no-cssgrid div.contact{ display: none; }
+.no-cssgrid div.site{
+	display: flex;
+	flex-direction: row;
+	flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.no-cssgrid div.main1{ order: 1; }
+.no-cssgrid div.artists{ order: 2; }
+.no-cssgrid div.contact{ order: 3; }
+.no-cssgrid .video1 { order: 4; }
+.no-cssgrid .video2 { order: 5; }
+.no-cssgrid .insta { order: 6; }
+.no-cssgrid .facebook {	order: 7;}
+
 
