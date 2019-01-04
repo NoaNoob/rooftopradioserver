@@ -27,6 +27,11 @@ public class HomeController {
 		return "music";
 	}
 
+	@RequestMapping(value = "/gallery")
+	public String gallery() {
+		return "gallery";
+	}
+
 	@RequestMapping(value = "/impressum")
 	public String impressum() {
 		return "impressum";

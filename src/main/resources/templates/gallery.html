@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: header('Login')" />
+<body>
+
+<video id="video_background" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0"> 
+   <source src="fiber640.mp4" type="video/mp4"> 
+Video not supported </video>
+ 
+<div id="video_pattern"></div>
+
+	<div id="root">
+		<div th:replace="fragments/fallback :: fallback"></div>
+		<login-component>
+		</login-component>
+
+		<div class="site">
+
+			<div class="gallery">
+			  <div class="img-w"><img alt="" src="gallery/rooftopradio.jpg" /></div>
+			  <div class="img-w"><img alt="" src="gallery/nostromo.jpg" /></div>
+			  <div class="img-w"><img alt="" src="gallery/bautzen2.jpg" /></div>
+			  <div class="img-w"><img alt="" src="gallery/bandlife.jpg" /></div>
+			  <div class="img-w"><img alt="" src="gallery/bautzen3.jpg" /></div>
+			  <div class="img-w"><img alt="" src="gallery/bautzen1.jpg" /></div>
+			  <div class="img-w"><img alt="" src="gallery/rooftopworld.jpg" /></div>
+			  <div class="img-w"><img alt="" src="gallery/yellowcapparty.jpg" /></div>
+			  <div class="img-w"><img alt="" src="gallery/basta.jpg" /></div>
+			</div>
+
+			<hr>
+
+			<div class="card video1">
+				<p></p>
+				<a href="https://www.youtube.com/watch?v=XhmWdbrLBVA" target="_blank"> <img
+					class="sociallogo" src="youtube.png"><span class="glow"
+					style="font-size: large;"> Klickt uns auf Youtube!</span>
+				</a>
+				<p></p>
+			</div>
+
+			<div class="card video2">
+				<p></p>
+				<a href="https://open.spotify.com/artist/7mlAiaGg8FYFj7pD9Pq1jp">
+					<img class="sociallogo" src="spotify_small.png"><span
+					class="glow" style="font-size: large;"> Hört uns auf
+						Spotify!</span>
+				</a>
+				<p></p>
+			</div>
+
+			<div class="card insta">
+				<p></p>
+				<a href="https://www.instagram.com/rooftopradioband/" target="_blank"> <img
+					class="sociallogo" src="instagram.png"><span class="glow"
+					style="font-size: large;"> Folgt uns auf Instagram!</span>
+				</a>
+				<p></p>
+			</div>
+
+			<div class="card facebook">
+				<p></p>
+				<a href="https://www.facebook.com/RooftopRadioBand/" target="_blank"> <img
+					class="sociallogo" src="facebook.png"><span class="glow"
+					style="font-size: large;"> Lasst uns ein "Like" da!</span>
+				</a>
+				<p></p>
+			</div>
+		</div>
+	</div>
+</body>
+<div th:replace="fragments/footer :: foot" class="footer"></div>
+<script>
+var app = new Vue({
+    el: '#root',
+    data : { },
+    mounted : function(){
+
+    },
+    methods: {
+
+
+    }
+});	
+
+
+// Stuff for da Gallery
+$(function() {
+	  $(".img-w").each(function() {
+	    $(this).wrap("<div class='img-c'></div>")
+	    let imgSrc = $(this).find("img").attr("src");
+	     $(this).css('background-image', 'url(' + imgSrc + ')');
+	  })
+	            
+	  
+	  $(".img-c").click(function() {
+	    let w = $(this).outerWidth()
+	    let h = $(this).outerHeight()
+	    let x = $(this).offset().left
+	    let y = $(this).offset().top
+	    
+	    
+	    $(".active").not($(this)).remove()
+	    let copy = $(this).clone();
+	    copy.insertAfter($(this)).height(h).width(w).delay(500).addClass("active")
+	    $(".active").css('top', y - 8);
+	    $(".active").css('left', x - 8);
+	    
+	      setTimeout(function() {
+	    copy.addClass("positioned")
+	  }, 0)
+	    
+	  }) 	  
+	})
+
+	$(document).on("click", ".img-c.active", function() {
+	  let copy = $(this)
+	  copy.removeClass("positioned active").addClass("postactive")
+	  setTimeout(function() {
+	    copy.remove();
+	  }, 500)
+	})
+</script>
+</html>
