@@ -11197,7 +11197,7 @@ module.exports = hoistNonReactStatics;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- *  howler.js v2.1.0
+ *  howler.js v2.1.1
  *  howlerjs.com
  *
  *  (c) 2013-2018, James Simpson of GoldFire Studios
@@ -11915,6 +11915,24 @@ module.exports = hoistNonReactStatics;
       } else if (typeof sprite === 'undefined') {
         // Use the default sound sprite (plays the full audio length).
         sprite = '__default';
+
+        // Check if there is a single paused sound that isn't ended. 
+        // If there is, play that sound. If not, continue as usual.  
+        if (!self._playLock) {
+          var num = 0;
+          for (var i=0; i<self._sounds.length; i++) {
+            if (self._sounds[i]._paused && !self._sounds[i]._ended) {
+              num++;
+              id = self._sounds[i]._id;
+            }
+          }
+
+          if (num === 1) {
+            sprite = null;
+          } else {
+            id = null;
+          }
+        }
       }
 
       // Get the selected node, or get one from the pool.
@@ -12908,7 +12926,7 @@ module.exports = hoistNonReactStatics;
       // Delete this sound from the cache (if no other Howl is using it).
       var remCache = true;
       for (i=0; i<Howler._howls.length; i++) {
-        if (Howler._howls[i]._src === self._src) {
+        if (Howler._howls[i]._src === self._src || self._src.indexOf(Howler._howls[i]._src) >= 0) {
           remCache = false;
           break;
         }
@@ -13660,7 +13678,7 @@ module.exports = hoistNonReactStatics;
 /*!
  *  Spatial Plugin - Adds support for stereo and 3D audio where Web Audio is supported.
  *  
- *  howler.js v2.1.0
+ *  howler.js v2.1.1
  *  howlerjs.com
  *
  *  (c) 2013-2018, James Simpson of GoldFire Studios
@@ -44772,7 +44790,7 @@ var propTypes =  true ? _extends({}, _Transition.default.propTypes, {
   /**
    * A `<Transition>` callback fired immediately after the 'exit-active' is applied.
    *
-   * @type Function(node: HtmlElement
+   * @type Function(node: HtmlElement)
    */
   onExiting: PropTypes.func,
 
@@ -44821,7 +44839,7 @@ function (_React$Component) {
       addClass(node, className);
 
       if (_this.props.onEnter) {
-        _this.props.onEnter(node);
+        _this.props.onEnter(node, appearing);
       }
     };
 
@@ -44832,7 +44850,7 @@ function (_React$Component) {
       _this.reflowAndAddClass(node, activeClassName);
 
       if (_this.props.onEntering) {
-        _this.props.onEntering(node);
+        _this.props.onEntering(node, appearing);
       }
     };
 
@@ -44845,7 +44863,7 @@ function (_React$Component) {
       addClass(node, doneClassName);
 
       if (_this.props.onEntered) {
-        _this.props.onEntered(node);
+        _this.props.onEntered(node, appearing);
       }
     };
 

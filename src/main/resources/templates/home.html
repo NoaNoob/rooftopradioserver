@@ -29,11 +29,18 @@ Video not supported </video>
 					alt="Card image cap">
 				<div class="card-body" style="margin: 10px 10px 10px 10px;">
 					<h5 class="card-title">
-						Live
+						Featured Track
 					</h5>
 					<p></p>
-					<p class="card-text">22.12.18 GR @ Nostromo <br> 04.01.19 GR @ Schlesisches Tor</p>
-					<p></p>
+					<p class="card-text">My Mirror</p>
+					<audio id="player">
+					  <source src="RooftopRadioMyMirror.mp3" type="audio/mpeg">
+					</audio>
+					<div>
+					  <button onclick="document.getElementById('player').play()"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button> 
+					  <button onclick="document.getElementById('player').pause()"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span></button> 
+					</div>
+					<p><a href="/music">Mehr hören!</a> </p>
 				</div>
 			</div>
 
