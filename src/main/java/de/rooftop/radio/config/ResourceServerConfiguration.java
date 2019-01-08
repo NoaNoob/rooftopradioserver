@@ -17,6 +17,8 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 		antMatchers("/impressum").permitAll().
 		antMatchers("/private").authenticated().
 		antMatchers("/initbands").authenticated().
+		antMatchers("/addband").authenticated().
+		antMatchers("/deleteband").authenticated().
 		antMatchers("/login").permitAll().
 		antMatchers("/logout").permitAll();
 
