@@ -285,6 +285,7 @@ li{color:green}
 /* Gallery */
 
 .gallery {
+	margin-left: 50px;
 	grid-area: main1;
 	grid-column-start: 1;
 	grid-column-end: span col4-start;
