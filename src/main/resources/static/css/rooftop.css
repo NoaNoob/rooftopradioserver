@@ -347,3 +347,30 @@ li{color:green}
   top: 0 !important;
   transition-delay: 50ms;
 }
+
+.playerbutton {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #000000;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 70px;
+  padding: 20px;
+  width: 500px;
+  transition: all 0.5s;
+  margin: 5px;
+ }
+
+.sociallogomobile {
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 150px;
+	width: 150px;
+}
+
+.textmobile {
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 70px;
+}

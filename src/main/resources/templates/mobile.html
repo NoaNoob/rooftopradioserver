@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: header('Login')" />
+<body>
+
+<video id="video_background" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0"> 
+   <source src="fiber640.mp4" type="video/mp4"></video>
+ 
+<div id="video_pattern"></div>
+
+	<div id="root">
+		<div style="display: flex;flex-direction: column;justify-content: space-evenly;align-items: center">
+			<img style="width: 90%" src="logo-transp.png">
+
+			<div class="textmobile glow">FIND AND FOLLOW US ON</div>
+
+			<div class="flex-item card insta" style="margin: 10px 10px 10px 10px; display: flex; justify-content: space-evenly">
+				<a href="https://www.instagram.com/rooftopradioband/" target="_blank"> <img
+					class="sociallogomobile" src="instagram.png">
+				</a>
+				<a href="https://www.facebook.com/RooftopRadioBand/" target="_blank"> <img
+					class="sociallogomobile" src="facebook.png">
+				</a>
+				<a href="https://www.youtube.com/watch?v=XhmWdbrLBVA" target="_blank"> <img
+					class="sociallogomobile" src="youtube.png">
+				</a>
+				<a href="https://open.spotify.com/artist/7mlAiaGg8FYFj7pD9Pq1jp">
+					<img class="sociallogomobile" src="spotify_small.png">
+				</a>
+			</div>
+
+			<div class="textmobile glow">LISTEN HERE FOR FREE</div>
+
+			<div class="flex-item" style="width: 90%; display: flex; flex-direction: column; justify-content: center">
+				<p>
+					<button style="width: 100%;" class="playerbutton" v-on:click="playMirror">My Mirror</button>
+				</p>
+				<p>
+					<button style="width: 100%;" class="playerbutton" v-on:click="playAstray">Astray</button>
+				</p>
+				<p>
+					<button style="width: 100%;" class="playerbutton" v-on:click="playDontRemember">Don't Remember</button>
+				</p>
+				<p>
+					<button style="width: 100%;" class="playerbutton" v-on:click="playTooLate">Too Late</button>
+				</p>
+
+				<p  class="card-text">
+					<audio id="audioplayer" controls style="width: 100%;">
+					  <source id="source" src="RooftopRadioMyMirror.mp3" type="audio/mpeg">
+					  <!-- source v-if="this.showAstray" src="RooftopRadioAstray.mp3" type="audio/mpeg">
+					  <source v-if="this.showDontRemember" src="RooftopRadioDontRemember.mp3" type="audio/mpeg">
+					  <source v-if="this.showTooLate" src="RooftopRadioTooLate.mp3" type="audio/mpeg" -->
+					</audio>
+				</p>
+			</div>			
+		</div>
+	</div>
+</body>
+<div th:replace="fragments/footer :: foot" class="footer"></div>
+<script>
+var app = new Vue({
+    el: '#root',
+    data : {
+    	showMirror: true,
+    	showAstray: false,
+    	showDontRemember: false,
+    	showTooLate: false
+    	
+    },
+    mounted : function(){
+
+    },
+    methods: {
+    	stopAll() {
+
+    		document.getElementById('audioplayer').pause();
+
+    		this.showMirror=false;
+    		this.showAstray=false;
+    		this.showDontRemember=false;
+    		this.showTooLate=false;
+    		console.log("stopped");
+    	},
+    	play(source) {
+    		this.stopAll();
+    		this.showMirror=true;
+    		document.getElementById('source').src = source;    		
+    		document.getElementById('audioplayer').load(); 		
+    		document.getElementById('audioplayer').play(); 		
+    		console.log("playing: " + source);
+    	},
+    	playMirror(){
+    		this.play("RooftopRadioMyMirror.mp3");
+        },
+        playAstray(){
+    		this.play("RooftopRadioAstray.mp3");
+        },
+        playDontRemember(){
+    		this.play("RooftopRadioDontRemember.mp3");
+        },
+        playTooLate(){
+    		this.play("RooftopRadioTooLate.mp3");
+        }
+    }
+});	
+</script>
+</html>

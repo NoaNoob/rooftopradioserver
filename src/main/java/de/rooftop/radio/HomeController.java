@@ -1,10 +1,19 @@
 package de.rooftop.radio;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import org.springframework.mobile.device.Device;
+import org.springframework.mobile.device.DeviceUtils;
+
 
 @Controller
 public class HomeController {
@@ -18,7 +27,11 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/home")
-	public String home() {
+	public String home(Device device, HttpServletRequest request) {
+
+		if (device.isMobile())
+			return "mobile";
+
 		return "home";
 	}
 
