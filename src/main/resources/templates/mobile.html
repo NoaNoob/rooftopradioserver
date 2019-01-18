@@ -87,12 +87,10 @@ var app = new Vue({
     	stopAll() {
 
     		document.getElementById('audioplayer').pause();
-    		console.log("stopped");
     	},
     	continueSong() {
 
     		document.getElementById('audioplayer').play();
-    		console.log("continue");
     	},
     	play(source) {
     		this.showPlayer();
@@ -100,7 +98,6 @@ var app = new Vue({
     		document.getElementById('source').src = source;    		
     		document.getElementById('audioplayer').load(); 		
     		document.getElementById('audioplayer').play(); 		
-    		console.log("playing: " + source);
     	},
     	playMirror(){
     		this.current = "My Mirror";
