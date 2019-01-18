@@ -44,26 +44,36 @@
 				<p>
 					<button style="width: 100%;" class="playerbutton" v-on:click="playTooLate">Too Late</button>
 				</p>
-
-				<p  class="card-text">
-					<audio id="audioplayer" controls style="width: 100%;">
-					  <source id="source" src="RooftopRadioMyMirror.mp3" type="audio/mpeg">
-					</audio>
-				</p>
 			</div>
 		</div>
+		<div id="playercontrols" class="playercontrols">
+			<p>
+				<span style="margin-right: 5px;" class="glyphicon glyphicon-play" aria-hidden="true" v-on:click="continueSong"></span>
+				<span style="margin-right: 5px;" class="glyphicon glyphicon-pause" aria-hidden="true" v-on:click="stopAll"></span>
+				<span style="margin-right: 5px;" class="glyphicon glyphicon-stop" aria-hidden="true" v-on:click="hidePlayer"></span>
+				{{ current }}
+			</p>
+			<p>
+				<audio id="audioplayer" controls style="width: 100%;">
+					<source id="source" src="RooftopRadioMyMirror.mp3"
+						type="audio/mpeg">
+				</audio>
+			</p>
+		</div>
+
+		<div id="playerspace" class="playerspace">
+		ROOFTOP RADIO @ 2019
+		</div>
 	</div>
+
 </body>
 <div th:replace="fragments/footer :: foot" class="footer"></div>
 <script>
 var app = new Vue({
     el: '#root',
     data : {
-    	showMirror: true,
-    	showAstray: false,
-    	showDontRemember: false,
-    	showTooLate: false
-    	
+    	current: 'My Mirror',
+    	hideplayer: true
     },
     mounted : function(){
 
@@ -72,33 +82,56 @@ var app = new Vue({
     	stopAll() {
 
     		document.getElementById('audioplayer').pause();
-
-    		this.showMirror=false;
-    		this.showAstray=false;
-    		this.showDontRemember=false;
-    		this.showTooLate=false;
     		console.log("stopped");
     	},
+    	continueSong() {
+
+    		document.getElementById('audioplayer').play();
+    		console.log("continue");
+    	},
     	play(source) {
+    		this.showPlayer();
     		this.stopAll();
-    		this.showMirror=true;
     		document.getElementById('source').src = source;    		
     		document.getElementById('audioplayer').load(); 		
     		document.getElementById('audioplayer').play(); 		
     		console.log("playing: " + source);
     	},
     	playMirror(){
+    		this.current = "My Mirror";
     		this.play("RooftopRadioMyMirror.mp3");
         },
         playAstray(){
+    		this.current = "Astray";
     		this.play("RooftopRadioAstray.mp3");
         },
         playDontRemember(){
+    		this.current = "Don't Remember";
     		this.play("RooftopRadioDontRemember.mp3");
         },
         playTooLate(){
+    		this.current = "Too Late";
     		this.play("RooftopRadioTooLate.mp3");
+        },
+        showPlayer() {
+        	if (this.hideplayer) {
+    			document.getElementById("playercontrols").style.display = "block";
+
+    			document.getElementById("playercontrols").style.opacity = "1";
+    			document.getElementById("playercontrols").style.bottom = "0";
+
+    			this.hideplayer = false;
+        	}
+        },
+        hidePlayer() {
+        	
+        	this.stopAll();
+
+        	document.getElementById("playercontrols").style.opacity = "0";
+			document.getElementById("playercontrols").style.bottom = "-200";
         }
+        
+        
     }
 });	
 </script>

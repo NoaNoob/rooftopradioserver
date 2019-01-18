@@ -193,7 +193,7 @@ border-radius:7px 7px 7px 7px ;
 /* Fancy Background */
 
 #video_background {
-	position: absolute;
+	position: fixed;
 	top: 0px;
 	right: 0px;
 	min-width: 100%;
@@ -373,4 +373,31 @@ li{color:green}
   color: #FFFFFF;
   text-align: center;
   font-size: 70px;
+}
+
+.playercontrols {
+  display: block;
+  font-size: 60px;
+  position: fixed;
+  left: 0;
+  bottom: -200;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+
+  opacity: 0;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+
+}
+
+.playerspace {
+	  color: #FFFFFF;
+	  text-align: center;
+	  font-size: 30px;
+	height: 200px;
 }

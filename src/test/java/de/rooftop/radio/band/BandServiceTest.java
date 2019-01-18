@@ -26,7 +26,6 @@ public class BandServiceTest {
 
 		bandService.initBandData();
 		List<Band> list = bandService.getAllBands();
-//		Assert.assertThat(list.size(), Is.is(74));
 	}
 
 	/**
