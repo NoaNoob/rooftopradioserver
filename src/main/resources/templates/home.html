@@ -11,9 +11,9 @@ Video not supported </video>
 
 	<div id="root">
 		<div th:replace="fragments/fallback :: fallback"></div>
-		<login-component>
+		<!-- <login-component>
 		</login-component>
-
+ -->
 		<div class="site">
 			<div class="card rooftop-title">
 				<img class="card-img-top" src="logo_neon.png" alt="Card image cap">
@@ -23,25 +23,40 @@ Video not supported </video>
 				</div>
 			</div>
 
-			<div class="card rooftop-card main1 glow">
-				<img class="card-img-top"
-					src="drums.jpg"
-					alt="Card image cap">
-				<div class="card-body" style="margin: 10px 10px 10px 10px;">
-					<h5 class="card-title">
-						Featured Track
-					</h5>
-					<p></p>
-					<p class="card-text">My Mirror</p>
-					<audio id="player">
-					  <source src="RooftopRadioMyMirror.mp3" type="audio/mpeg">
-					</audio>
-					<div>
-					  <button onclick="document.getElementById('player').play()"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button> 
-					  <button onclick="document.getElementById('player').pause()"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span></button> 
-					</div>
-					<p><a href="/music">Mehr hören!</a> </p>
+			<div class="card rooftop-card player glow" style="display: flex; flex-direction: column; justify-content: space-around;">
+				<div class="card-text glow">Direkt reinhören:</div>
+	
+				<div class="flex-item" style="display: flex; flex-direction: column; justify-content: space-around;">
+					<p>
+						<button style="width: 100%;" class="playerbutton" v-on:click="playMirror">My Mirror</button>
+					</p>
+					<p>
+						<button style="width: 100%;" class="playerbutton" v-on:click="playAstray">Astray</button>
+					</p>
+					<p>
+						<button style="width: 100%;" class="playerbutton" v-on:click="playDontRemember">Don't Remember</button>
+					</p>
+					<p>
+						<button style="width: 100%;" class="playerbutton" v-on:click="playTooLate">Too Late</button>
+					</p>
 				</div>
+
+				<div class="card-text glow" >Mehr von uns hört ihr live!</div>
+
+				<div id="playercontrols" class="playercontrols">
+					<p>
+						<span style="margin-right: 5px;" class="glyphicon glyphicon-music" aria-hidden="true"></span>
+						{{ current }}
+						<span style="margin-left: 5px;" class="glyphicon glyphicon-music" aria-hidden="true"></span>
+					</p>
+					<p>
+						<audio id="audioplayer" controls style="width: 100%;">
+							<source id="source" src="RooftopRadioMyMirror.mp3"
+								type="audio/mpeg">
+						</audio>
+					</p>
+				</div>
+				
 			</div>
 
 			<div class="card rooftop-card contact glow">
@@ -56,22 +71,24 @@ Video not supported </video>
 				</div>
 			</div>
 
-			<div class="card rooftop-card artists glow">
-				<img class="card-img-top"
-					src="fete_de_la_mugge.jpg" alt="Card image cap">
-					<div class="card-body" style="margin: 10px 10px 10px 10px;">
-						<h5 class="card-title">Görlitzer Musiker</h5>
-						<p class="card-text">
-							Sollten wir tatsächlich mal keine Zeit haben euer Festival zu
-							bespielen findet ihr <a href="/">hier ihr eine Übersicht</a> über
-							andere großartige Musiker aus der Region.
-						</p>
-					</div>				
+			<div class="gallery glow">
+				<div class="card-body" style="margin: 10px 10px 10px 10px;">
+				  <div class="img-w"><img alt="" src="gallery/rooftopradio.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/nostromo.JPG" /></div>
+				  <div class="img-w"><img alt="" src="gallery/bautzen2.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/bandlife.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/rooftopworld.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/bautzen3.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/bautzen1.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/fetedelamusique.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/basta.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/nostromo2.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/yellowcapparty.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/nostromo3.jpg" /></div>
+				</div>
 			</div>
 
-			<hr>
-
-			<div class="card video1">
+			<div class="card youtube">
 				<p></p>
 				<a href="https://www.youtube.com/watch?v=XhmWdbrLBVA" target="_blank"> <img
 					class="sociallogo" src="youtube.png"><span class="glow"
@@ -80,7 +97,7 @@ Video not supported </video>
 				<p></p>
 			</div>
 
-			<div class="card video2">
+			<div class="card spotify">
 				<p></p>
 				<a href="https://open.spotify.com/artist/7mlAiaGg8FYFj7pD9Pq1jp">
 					<img class="sociallogo" src="spotify_small.png"><span
@@ -114,14 +131,85 @@ Video not supported </video>
 <script>
 var app = new Vue({
     el: '#root',
-    data : { },
+    data : {
+    	current: 'My Mirror'
+    },
     mounted : function(){
 
     },
     methods: {
+    	stopAll() {
 
+    		document.getElementById('audioplayer').pause();
+    	},
+    	continueSong() {
 
+    		document.getElementById('audioplayer').play();
+    	},
+    	play(source) {
+    		this.stopAll();
+    		document.getElementById('source').src = source;    		
+    		document.getElementById('audioplayer').load(); 		
+    		document.getElementById('audioplayer').play(); 		
+    	},
+    	playMirror(){
+    		this.current = "My Mirror";
+    		this.play("RooftopRadioMyMirror.mp3");
+        },
+        playAstray(){
+    		this.current = "Astray";
+    		this.play("RooftopRadioAstray.mp3");
+        },
+        playDontRemember(){
+    		this.current = "Don't Remember";
+    		this.play("RooftopRadioDontRemember.mp3");
+        },
+        playTooLate(){
+    		this.current = "Too Late";
+    		this.play("RooftopRadioTooLate.mp3");
+        }
     }
 });	
+
+// gallery stuff
+$(function() {
+	  $(".img-w").each(function() {
+	    $(this).wrap("<div class='img-c'></div>")
+	    let imgSrc = $(this).find("img").attr("src");
+	     $(this).css('background-image', 'url(' + imgSrc + ')');
+	  })
+	            
+	  
+	  $(".img-c").click(function() {
+	    let w = $(this).outerWidth()
+	    let h = $(this).outerHeight()
+	    let x = $(this).offset().left
+	    let y = $(this).offset().top
+	    
+	    
+	    $(".active").not($(this)).remove()
+	    let copy = $(this).clone();
+	    copy.insertAfter($(this)).height(h).width(w).delay(500).addClass("active")
+	    $(".active").css('top', y - 8);
+	    $(".active").css('left', x - 8);
+	    
+	      setTimeout(function() {
+	    copy.addClass("positioned")
+	  }, 0)
+	    
+	  }) 
+	  
+	  
+
+	  
+	})
+
+	$(document).on("click", ".img-c.active", function() {
+	  let copy = $(this)
+	  copy.removeClass("positioned active").addClass("postactive")
+	  setTimeout(function() {
+	    copy.remove();
+	  }, 500)
+	})
 </script>
 </html>

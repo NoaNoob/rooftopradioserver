@@ -19,8 +19,8 @@ window.Event = new Vue({
 Vue.component('login-component',{
         template: '<div class="topnav">'
         	+ '<a href="/home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>'
-        	+ '<a href="/music"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Music</a>'
-        	+ '<a href="/gallery"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Gallery</a>'
+//        	+ '<a href="/music"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Music</a>'
+//        	+ '<a href="/gallery"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Gallery</a>'
         	+ '<a href="/"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span> Artists</a>'
         	+ '<a href="/impressum"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Impressum</a>'
         	+ '<a v-if=!isLoggedIn() href="/login"> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a>'

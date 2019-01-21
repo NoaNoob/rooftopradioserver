@@ -20,12 +20,12 @@ body {
 	grid-template-rows: auto;
 	grid-template-areas: 
 	"title"
+	"player"
 	"contact"
 	"insta"
 	"facebook"
-	"video1"
-	"video2"
-	"main1"
+	"youtube"
+	"spotify"
 	"artists"
 	;
 }
@@ -34,13 +34,15 @@ body {
 	.site {
 	justify-items: center;
 	grid-template-columns: 1fr 2fr 2fr 1fr;
-		grid-template-rows: auto auto 60px 100px 60px 100px 60px;
-		grid-template-areas: ". title contact ."
-			". main1 artists ."
+		grid-template-rows: 30px auto auto 60px 100px 60px 100px 60px;
+		grid-template-areas: 
+		  ". . . ."
+		  ". title player ."
+			". contact gallery ."
 		  ". . . ."
 			". insta facebook ."
 		  ". . . ."
-			". video1 video2 ."
+			". youtube spotify ."
 		  ". . . .";
 	}
 }
@@ -51,11 +53,11 @@ body {
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 30px auto 60px 100px 30px 100px 60px;
 		grid-template-areas: ". . . ."
-		  "title main1 contact artists"
+		  "title contact gallery player"
 		  ". . . ."
 			". insta facebook ."
 			". . . ."
-			". video1 video2 ."
+			". youtube spotify ."
 			". . . .";
 	}
 }
@@ -105,17 +107,17 @@ audio
 border-radius:7px 7px 7px 7px ;
 }
 
-.main1 {
-	grid-area: main1;
+.player {
+	grid-area: player;
 }
 .artists {
 	grid-area: artists;
 }
-.video1 {
-	grid-area: video1;
+.youtube {
+	grid-area: youtube;
 }
-.video2 {
-	grid-area: video2;
+.spotify {
+	grid-area: spotify;
 }
 .contact {
 	grid-area: contact;
@@ -285,21 +287,16 @@ li{color:green}
 /* Gallery */
 
 .gallery {
-	margin-left: 50px;
-	grid-area: main1;
-	grid-column-start: 1;
-	grid-column-end: span col4-start;
-	grid-row-start: 2
-	grid-row-end: span 2;
-/*	width: 600px;
-   margin: auto;
+  width: 300;
+  grid-area: gallery;
+  margin: auto;
   border-radius: 3px;
   overflow: hidden;
-  //position: relative;
- */}
+}
+
 .img-c {
-  width: 300px;
-  height: 300px;
+  width: 120px;
+  height: 120px;
   float: left;
   position: relative;
   overflow: hidden;
@@ -355,6 +352,18 @@ li{color:green}
   border: none;
   color: #FFFFFF;
   text-align: center;
+  padding: 5px;
+  width: 100%;
+  margin-top: 5px;
+ }
+
+.playerbuttonmobile {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #000000;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
   font-size: 70px;
   padding: 20px;
   width: 500px;
@@ -379,7 +388,7 @@ li{color:green}
   color: #FFFFFF;
 }
 
-.playercontrols {
+.playercontrolsmobile {
   display: block;
   font-size: 60px;
   position: fixed;
@@ -391,6 +400,25 @@ li{color:green}
   text-align: center;
 
   opacity: 0;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+
+}
+
+.playercontrols {
+
+  align-self: flex-end;
+	
+  display: block;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+
   -webkit-transition: all 1s ease-in-out;
   -moz-transition: all 1s ease-in-out;
   -ms-transition: all 1s ease-in-out;
