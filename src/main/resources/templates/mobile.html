@@ -10,7 +10,7 @@
 
 	<div id="root">
 		<div style="display: flex;flex-direction: column;justify-content: space-evenly;align-items: center">
-			<img id="logo" style="width: 90%" src="logo-transp.png">
+			<img style="width: 90%" src="logo-transp.png">
 			<p class="textmobile glow">FRESH ROCK FROM GÖRLITZ</p>
 			<div class="textmobile glow">Folgt uns auf</div>
 
@@ -170,52 +170,5 @@ var app = new Vue({
   }
 });
 
-document.addEventListener("DOMContentLoaded", function(event) {
-	  var root = document.getElementById("logo"),
-
-	      rotX = 0,
-	      rotY = 0,
-
-	      wrapperWidth = $('body').width(),
-	      wrapperHeight = $('body').height(),
-
-	      rootWidth = root.width(),
-	      rootHeight = root.height(),
-
-	      moveMaxHeight = (rootHeight - wrapperHeight)/2,
-	      moveMaxWidth = (rootWidth - wrapperWidth)/2
-	  ;
-
-	  if ( window.DeviceMotionEvent ) { 
-	    window.ondeviceorientation = function(event) {
-	      beta = event.beta;
-	      gamma = event.gamma;
-	      setTimeout(function(){
-	        normalizeData(gamma, beta)
-	      }, 50)
-	    }  
-	  }
-
-	  function normalizeData(_g, _b){
-	    
-	    b = Math.round(_b);
-	    g = Math.round(_g);
-	    
-	    rotY += (g - rotY) / 5;
-	    rotX += (b - rotX) / 5;
-
-	    if (rotY > 5) {
-	    	rotY = 5;
-	    }
-/* 	    if (rotX > 5) {
-	    	rotX = 5;
-	    }
- */
-		rotY = rotY * (-1);
- 
- 		root.css('transform', 'rotateY('+rotY+'deg) rotateX(0deg)');
-	  }
-});
-	 
 </script>
 </html>
