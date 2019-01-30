@@ -23,10 +23,25 @@ Video not supported </video>
 				</div>
 			</div>
 
+			<div class="card rooftop-card contact glow">
+				<img class="card-img-top" src="world.jpg" alt="Card image cap">
+				<div class="card-body" style="margin: 10px 10px 10px 10px;">
+					<h5 class="card-title">Kontakt</h5>
+					<p class="card-text">
+					Schön das ihr hergefunden habt! Schreibt uns gerne per Direktnachricht über die Sozialen Netzwerke! Bookinganfragen sendet ihr am besten per Mail an
+						<a href="mailto:band@rooftopradio.de">band@rooftopradio.de</a> oder per Nachricht über unsere <a
+							href="http://www.facebook.com/RooftopRadioBand" target="_blank">Facebook-Seite</a>!
+					</p>
+				</div>
+			</div>
+
 			<div class="card rooftop-card player glow" style="display: flex; flex-direction: column; justify-content: space-around;">
 				<div class="card-text glow">Direkt reinhören:</div>
 	
 				<div class="flex-item" style="display: flex; flex-direction: column; justify-content: space-around;">
+					<p>
+						<button class="playerbutton" v-on:click="playDecide">Decide</button>
+					</p>
 					<p>
 						<button class="playerbutton" v-on:click="playMirror">My Mirror</button>
 					</p>
@@ -59,18 +74,6 @@ Video not supported </video>
 				
 			</div>
 
-			<div class="card rooftop-card contact glow">
-				<img class="card-img-top" src="world.jpg" alt="Card image cap">
-				<div class="card-body" style="margin: 10px 10px 10px 10px;">
-					<h5 class="card-title">Kontakt</h5>
-					<p class="card-text">
-					Schön das ihr hergefunden habt! Schreibt uns gerne per Direktnachricht über die Sozialen Netzwerke! Bookinganfragen sendet ihr am besten per Mail an
-						<a href="mailto:band@rooftopradio.de">band@rooftopradio.de</a> oder per Nachricht über unsere <a
-							href="http://www.facebook.com/RooftopRadioBand" target="_blank">Facebook-Seite</a>!
-					</p>
-				</div>
-			</div>
-
 			<div class="gallery glow">
 				<div class="card-body" style="margin: 10px 10px 10px 10px;">
 				  <div class="img-w"><img alt="" src="gallery/rooftopradio.jpg" /></div>
@@ -90,7 +93,7 @@ Video not supported </video>
 
 			<div class="card youtube">
 				<p></p>
-				<a href="https://www.youtube.com/watch?v=XhmWdbrLBVA" target="_blank"> <img
+				<a href="https://www.youtube.com/watch?v=N8dZZkgUCmc&list=PLDzVZLMD-t2aKP5oAZC7nAjd0Yw79Fcm1" target="_blank"> <img
 					class="sociallogo" src="youtube.png"><span class="glow"
 					style="font-size: large;"> Klickt uns auf Youtube!</span>
 				</a>
@@ -123,6 +126,21 @@ Video not supported </video>
 					style="font-size: large;"> Lasst uns ein "Like" da!</span>
 				</a>
 				<p></p>
+			</div>
+
+			<div class="card bandcamp">
+				<p></p>
+				<a href="https://rooftopradio.bandcamp.com/releases" target="_blank">
+					<img class="sociallogo" src="bandcamp-button-bc-circle-aqua-64.png"><span class="glow"
+					style="font-size: large;"> Kauft die EP, bezahlt was ihr wollt!</span>
+				</a>
+				<p></p>
+			</div>
+
+			<div class="card paypal">
+				<a href="https://paypal.me/rooftopradio/5" target="_blank"> <img
+					class="customlogo" src="de-pp-logo-200px.png"><br><span class="glow"
+					style="font-size: large;"> Gebt uns ein Bier aus!</span></a>
 			</div>
 		</div>
 
@@ -169,38 +187,42 @@ var app = new Vue({
 
     },
     methods: {
-    	toggleImpressum() {
+    	toggleImpressum: function(){
     		this.showImpressum = !this.showImpressum;
     	},
-    	stopAll() {
+    	stopAll: function() {
 
     		document.getElementById('audioplayer').pause();
     	},
-    	continueSong() {
+    	continueSong: function() {
 
     		document.getElementById('audioplayer').play();
     	},
-    	play(source) {
+    	play: function(source) {
     		this.stopAll();
     		document.getElementById('source').src = source;    		
     		document.getElementById('audioplayer').load(); 		
     		document.getElementById('audioplayer').play(); 		
     	},
-    	playMirror(){
+    	playMirror: function(){
     		this.current = "My Mirror";
     		this.play("RooftopRadioMyMirror.mp3");
         },
-        playAstray(){
+        playAstray: function(){
     		this.current = "Astray";
     		this.play("RooftopRadioAstray.mp3");
         },
-        playDontRemember(){
+        playDontRemember: function(){
     		this.current = "Don't Remember";
     		this.play("RooftopRadioDontRemember.mp3");
         },
-        playTooLate(){
+        playTooLate: function(){
     		this.current = "Too Late";
     		this.play("RooftopRadioTooLate.mp3");
+        },
+        playDecide: function(){
+    		this.current = "Decide";
+    		this.play("RooftopRadioDecide.mp3");
         }
     }
 });	

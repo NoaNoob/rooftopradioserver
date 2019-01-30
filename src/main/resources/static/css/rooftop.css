@@ -11,6 +11,10 @@ body {
 	width: 50px;
 }
 
+.customlogo {
+	height: 50px;
+}
+
 /* LAYOUT */
 
 .site {
@@ -23,6 +27,8 @@ body {
 	"player"
 	"contact"
 	"insta"
+	"bandcamp"
+	"paypal"
 	"facebook"
 	"youtube"
 	"spotify"
@@ -40,6 +46,8 @@ body {
 		  ". title player ."
 			". contact gallery ."
 		  ". . . ."
+			". paypal bandcamp ."
+		  ". . . ."
 			". insta facebook ."
 		  ". . . ."
 			". youtube spotify ."
@@ -55,7 +63,7 @@ body {
 		grid-template-areas: ". . . ."
 		  "title contact gallery player"
 		  ". . . ."
-			". insta facebook ."
+			"paypal insta facebook bandcamp"
 			". . . ."
 			". youtube spotify ."
 			". . . .";
@@ -133,6 +141,12 @@ border-radius:7px 7px 7px 7px ;
 }
 .facebook {
 	grid-area: facebook;
+}
+.bandcamp {
+	grid-area: bandcamp;
+}
+.paypal {
+	grid-area: paypal;
 }
 
 .impressum {
@@ -388,6 +402,13 @@ li{color:green}
 	width: 150px;
 }
 
+.paypallogomobile {
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 50px;
+	width: 200px;
+}
+
 .textmobile {
   color: #FFFFFF;
   text-align: center;
@@ -405,7 +426,7 @@ li{color:green}
 	border: none;
 	display: block;
 /* 	font-size: 70px; */
-	width: 100%;
+/* 	width: 100%; */
 	background-color: Transparent;
 	color: white;
 	text-align: center;
