@@ -296,13 +296,13 @@ li{color:green}
 	justify-content: space-around;
 }
 
-.no-cssgrid div.main1{ order: 1; }
-.no-cssgrid div.artists{ order: 2; }
-.no-cssgrid div.contact{ order: 3; }
-.no-cssgrid .video1 { order: 4; }
-.no-cssgrid .video2 { order: 5; }
-.no-cssgrid .insta { order: 6; }
-.no-cssgrid .facebook {	order: 7;}
+.no-cssgrid title{ order: 1; }
+.no-cssgrid contact{ order: 3; }
+.no-cssgrid player{ order: 2; }
+.no-cssgrid video1 { order: 4; }
+.no-cssgrid video2 { order: 5; }
+.no-cssgrid insta { order: 6; }
+.no-cssgrid facebook {	order: 7;}
 
 /* Gallery */
 
