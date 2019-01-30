@@ -405,8 +405,7 @@ li{color:green}
 .paypallogomobile {
 	margin-left: 10px;
 	margin-right: 10px;
-	height: 50px;
-	width: 200px;
+	transform: scale(2);
 }
 
 .textmobile {
