@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: header('Login')" />
+<body>
+
+ 
+<div style="position: fixed; z-index: -99; width: 100%; height: 100%">
+  <iframe frameborder="0" height="100%" width="100%" 
+    src="https://youtube.com/embed/IY31nrs3hR8?autoplay=1&controls=0&showinfo=0&autohide=1&start=18&mute=1&loop=1">
+  </iframe>
+</div>
+<!--     IY31nrs3hR8 oPXgaBLr0wI  -->
+	<div id="root">
+		<div th:replace="fragments/fallback :: fallback"></div>
+		<!-- <login-component>
+		</login-component>
+ -->
+		<div class="site">
+			<div class="card rooftop-title">
+				<img class="card-img-top" src="logo_sunrise.png" alt="Card image cap">
+				<div class="card-body" style="margin: 10px 10px 10px 10px;">
+					<p></p>
+					<p class="card-text softglow">FRESH ROCK FROM GÖRLITZ</p>
+				</div>
+			</div>
+
+			<div class="card rooftop-card-soft contact softglow">
+				<img class="card-img-top" src="world.jpg" alt="Card image cap">
+				<div class="card-body" style="margin: 10px 10px 10px 10px;">
+					<h5 class="card-title">Kontakt</h5>
+					<p class="card-text">
+					Schön das ihr hergefunden habt! Schreibt uns gerne per Direktnachricht über die Sozialen Netzwerke! Bookinganfragen sendet ihr am besten per Mail an
+						<a href="mailto:band@rooftopradio.de">band@rooftopradio.de</a> oder per Nachricht über unsere <a
+							href="http://www.facebook.com/RooftopRadioBand" target="_blank">Facebook-Seite</a>!
+					</p>
+				</div>
+			</div>
+
+			<div class="card rooftop-card-soft player softglow" style="display: flex; flex-direction: column; justify-content: space-around;">
+				<div class="card-text softglow">Direkt reinhören:</div>
+	
+				<div class="flex-item" style="display: flex; flex-direction: column; justify-content: space-around;">
+					<p>
+						<button class="playerbutton" v-on:click="playDecide">Decide</button>
+					</p>
+					<p>
+						<button class="playerbutton" v-on:click="playMirror">My Mirror</button>
+					</p>
+					<p>
+						<button class="playerbutton" v-on:click="playAstray">Astray</button>
+					</p>
+					<p>
+						<button class="playerbutton" v-on:click="playDontRemember">Don't Remember</button>
+					</p>
+					<p>
+						<button class="playerbutton" v-on:click="playTooLate">Too Late</button>
+					</p>
+				</div>
+
+				<div class="card-text softglow" >Mehr von uns hört ihr live!</div>
+
+				<div id="playercontrols" class="playercontrols">
+					<p>
+						<span style="margin-right: 5px;" class="glyphicon glyphicon-music" aria-hidden="true"></span>
+						{{ current }}
+						<span style="margin-left: 5px;" class="glyphicon glyphicon-music" aria-hidden="true"></span>
+					</p>
+					<p>
+						<audio id="audioplayer" controls style="width: 100%;">
+							<source id="source" src="RooftopRadioMyMirror.mp3"
+								type="audio/mpeg">
+						</audio>
+					</p>
+				</div>
+				
+			</div>
+
+			<div class="card youtube">
+				<p></p>
+				<a href="https://www.youtube.com/watch?v=N8dZZkgUCmc&list=PLDzVZLMD-t2aKP5oAZC7nAjd0Yw79Fcm1" target="_blank"> <img
+					class="sociallogo" src="youtube.png"><span class="softglow"
+					style="font-size: large;"> Klickt uns auf Youtube!</span>
+				</a>
+				<p></p>
+			</div>
+
+			<div class="card spotify">
+				<p></p>
+				<a href="https://open.spotify.com/artist/7mlAiaGg8FYFj7pD9Pq1jp">
+					<img class="sociallogo" src="spotify_small.png"><span
+					class="softglow" style="font-size: large;"> Hört uns auf
+						Spotify!</span>
+				</a>
+				<p></p>
+			</div>
+
+			<div class="card insta">
+				<p></p>
+				<a href="https://www.instagram.com/rooftopradioband/" target="_blank"> <img
+					class="sociallogo" src="instagram.png"><span class="softglow"
+					style="font-size: large;"> Folgt uns auf Instagram!</span>
+				</a>
+				<p></p>
+			</div>
+
+			<div class="card facebook">
+				<p></p>
+				<a href="https://www.facebook.com/RooftopRadioBand/" target="_blank"> <img
+					class="sociallogo" src="facebook.png"><span class="softglow"
+					style="font-size: large;"> Lasst uns ein "Like" da!</span>
+				</a>
+				<p></p>
+			</div>
+
+			<div class="card bandcamp">
+				<p></p>
+				<a href="https://rooftopradio.bandcamp.com/releases" target="_blank">
+					<img class="sociallogo" src="bandcamp-button-bc-circle-aqua-64.png"><span class="softglow"
+					style="font-size: large;"> Kauft die EP, bezahlt was ihr wollt!</span>
+				</a>
+				<p></p>
+			</div>
+
+			<div class="card paypal">
+				<a href="https://paypal.me/rooftopradio/5" target="_blank"> <img
+					class="customlogo" src="de-pp-logo-200px.png"><br><span class="softglow"
+					style="font-size: large;"> Gebt uns ein Bier aus!</span></a>
+			</div>
+
+			<div class="gallery softglow">
+				<div class="card-body" style="margin: 10px 10px 10px 10px;">
+				  <div class="img-w"><img alt="" src="gallery/rooftopradio.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/nostromo.JPG" /></div>
+				  <div class="img-w"><img alt="" src="gallery/bautzen2.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/bandlife.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/rooftopworld.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/bautzen3.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/bautzen1.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/fetedelamusique.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/basta.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/nostromo2.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/yellowcapparty.jpg" /></div>
+				  <div class="img-w"><img alt="" src="gallery/nostromo3.jpg" /></div>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<button class="impressumbuttonfull softglow" v-on:click="toggleImpressum">
+				<div v-if="!this.showImpressum">Impressum </div>
+						  <div v-if="this.showImpressum">Impressum ausblenden</div>
+			</button>
+			<div v-if="this.showImpressum" class="impressumfull" v-on:click="toggleImpressum">
+					Angaben gemäß § 5 TMG<br>
+					Verantwortlich für diese Website:<br> Justus Markert<br>
+					Augustastraße 33<br> 02826 Görlitz<br> <br>
+	
+					Kontakt<br>
+
+					E-Mail: <a href="mailto:band@rooftopradio.de"> band@rooftopradio.de</a><br>
+					<br>
+					Haftung für Inhalte:<br>
+					<br>
+					Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.<br>
+					<br>
+					Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.<br>
+					<br>Haftung für Links:<br>
+					Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.<br>
+					Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.<br>
+					<br>
+					Urheberrecht:<br>
+					Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.<br>					
+					Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.<br>
+				
+			</div>
+		</div>
+	</div>
+</body>
+<div th:replace="fragments/footer :: foot" class="footer"></div>
+<script>
+var app = new Vue({
+    el: '#root',
+    data : {
+    	current: 'My Mirror',
+    	showImpressum: false
+    },
+    mounted : function(){
+
+    },
+    methods: {
+    	toggleImpressum: function(){
+    		this.showImpressum = !this.showImpressum;
+    	},
+    	stopAll: function() {
+
+    		document.getElementById('audioplayer').pause();
+    	},
+    	continueSong: function() {
+
+    		document.getElementById('audioplayer').play();
+    	},
+    	play: function(source) {
+    		this.stopAll();
+    		document.getElementById('source').src = source;    		
+    		document.getElementById('audioplayer').load(); 		
+    		document.getElementById('audioplayer').play(); 		
+    	},
+    	playMirror: function(){
+    		this.current = "My Mirror";
+    		this.play("RooftopRadioMyMirror.mp3");
+        },
+        playAstray: function(){
+    		this.current = "Astray";
+    		this.play("RooftopRadioAstray.mp3");
+        },
+        playDontRemember: function(){
+    		this.current = "Don't Remember";
+    		this.play("RooftopRadioDontRemember.mp3");
+        },
+        playTooLate: function(){
+    		this.current = "Too Late";
+    		this.play("RooftopRadioTooLate.mp3");
+        },
+        playDecide: function(){
+    		this.current = "Decide";
+    		this.play("RooftopRadioDecide.mp3");
+        }
+    }
+});	
+
+// gallery stuff
+$(function() {
+	  $(".img-w").each(function() {
+	    $(this).wrap("<div class='img-c'></div>")
+	    let imgSrc = $(this).find("img").attr("src");
+	     $(this).css('background-image', 'url(' + imgSrc + ')');
+	  })
+	            
+	  
+	  $(".img-c").click(function() {
+	    let w = $(this).outerWidth()
+	    let h = $(this).outerHeight()
+	    let x = $(this).offset().left
+	    let y = $(this).offset().top
+	    
+	    
+	    $(".active").not($(this)).remove()
+	    let copy = $(this).clone();
+	    copy.insertAfter($(this)).height(h).width(w).delay(500).addClass("active")
+	    $(".active").css('top', y - 8);
+	    $(".active").css('left', x - 8);
+	    
+	      setTimeout(function() {
+	    copy.addClass("positioned")
+	  }, 0)
+	    
+	  }) 
+	  
+	  
+
+	  
+	})
+
+	$(document).on("click", ".img-c.active", function() {
+	  let copy = $(this)
+	  copy.removeClass("positioned active").addClass("postactive")
+	  setTimeout(function() {
+	    copy.remove();
+	  }, 500)
+	})
+</script>
+</html>

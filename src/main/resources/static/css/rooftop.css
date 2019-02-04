@@ -1,9 +1,14 @@
 body {
-	background: radial-gradient(circle, #f0f, rgb(0, 0, 0));
+/* 	background: radial-gradient(circle, #f0f, rgb(0, 0, 0)); */
 }
 
 .backreverse {
 	background: radial-gradient(circle, rgb(0, 0, 0), #f0f);
+}
+
+.card-img-top {
+	width: 300px;
+	heigth: 242px;	
 }
 
 .sociallogo {
@@ -97,6 +102,20 @@ body {
     box-shadow:
         inset 10px 0 120px #f0f,  /* left magenta */
         inset -10px 0 120px #0ff; /* right cyan */
+
+}
+
+.rooftop-card-soft {
+	font-size: large;
+	place-self: center;
+	align-self: stretch;
+	width: 304px;
+	heigth: 36rem;
+	background-color: black;
+    border: solid 2px #fff;
+    box-shadow:
+        inset 1px 0 10px #ff8040, 
+        inset -1px 0 10px #004080; 
 
 }
 
@@ -202,6 +221,20 @@ border-radius:7px 7px 7px 7px ;
 .glow a {
   color: #caffff;
 }
+
+.softglow {
+  color: #fff;
+  text-align: center;
+/*  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;*/
+/* 	text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 1px #ff8000, 0 0 2px #ff8040, 0 0 2px #ff8000, 0 0 2px #ff8000, 0 0 2px #ff8040; */
+}
+
+.softglow a {
+  color: #ffff80;
+}
+
 
 @-webkit-keyframes glow {
   from {

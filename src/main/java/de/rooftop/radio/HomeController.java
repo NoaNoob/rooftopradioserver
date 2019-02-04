@@ -35,6 +35,12 @@ public class HomeController {
 		return "home";
 	}
 
+	@RequestMapping(value = "/home2")
+	public String home2(Device device, HttpServletRequest request) {
+
+		return "home2";
+	}
+
 	@RequestMapping(value = "/music")
 	public String music() {
 		return "music";
