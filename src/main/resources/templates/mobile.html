@@ -36,6 +36,9 @@
 
 			<div class="flex-item" style="width: 90%; display: flex; flex-direction: column; justify-content: center">
 				<p>
+					<button style="width: 100%;" class="playerbuttonmobile" v-on:click="playFallout">Fallout</button>
+				</p>
+				<p>
 					<button style="width: 100%;" class="playerbuttonmobile" v-on:click="playDecide">Decide</button>
 				</p>
 				<p>
@@ -61,7 +64,7 @@
 			</p>
 			<p>
 				<audio id="audioplayer" controls style="width: 100%;">
-					<source id="source" src="RooftopRadioMyMirror.mp3"
+					<source id="source" src="RooftopRadioFallout.mp3"
 						type="audio/mpeg">
 				</audio>
 			</p>
@@ -123,7 +126,7 @@
 var app = new Vue({
     el: '#root',
     data : {
-    	current: 'My Mirror',
+    	current: 'Fallout',
     	hideplayer: true,
     	showImpressum: false
     },
@@ -164,6 +167,10 @@ var app = new Vue({
         playTooLate(){
     		this.current = "Too Late";
     		this.play("RooftopRadioTooLate.mp3");
+        },
+        playFallout: function(){
+    		this.current = "Fallout";
+    		this.play("RooftopRadioFallout.mp3");
         },
         playDecide(){
     		this.current = "Decide";
