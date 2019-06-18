@@ -40,6 +40,9 @@ Video not supported </video>
 	
 				<div class="flex-item" style="display: flex; flex-direction: column; justify-content: space-around;">
 					<p>
+						<button class="playerbutton" v-on:click="playFallout">Fallout</button>
+					</p>
+					<p>
 						<button class="playerbutton" v-on:click="playDecide">Decide</button>
 					</p>
 					<p>
@@ -66,7 +69,7 @@ Video not supported </video>
 					</p>
 					<p>
 						<audio id="audioplayer" controls style="width: 100%;">
-							<source id="source" src="RooftopRadioDecide.mp3"
+							<source id="source" src="RooftopRadioFallout.mp3"
 								type="audio/mpeg">
 						</audio>
 					</p>
@@ -180,7 +183,7 @@ Video not supported </video>
 var app = new Vue({
     el: '#root',
     data : {
-    	current: 'Decide',
+    	current: 'Fallout',
     	showImpressum: false
     },
     mounted : function(){
@@ -219,6 +222,10 @@ var app = new Vue({
         playTooLate: function(){
     		this.current = "Too Late";
     		this.play("RooftopRadioTooLate.mp3");
+        },
+        playFallout: function(){
+    		this.current = "Fallout";
+    		this.play("RooftopRadioFallout.mp3");
         },
         playDecide: function(){
     		this.current = "Decide";
